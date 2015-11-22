@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -53,48 +52,129 @@
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hbc-Xa-uyd">
                                 <rect key="frame" x="277" y="545" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="resetBlendMode:" destination="Qi2-Jd-zOX" eventType="touchUpInside" id="L4p-ka-Vwf"/>
+                                </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4ek-f4-IC3">
-                                <rect key="frame" x="180" y="339" width="240" height="77"/>
+                                <rect key="frame" x="150" y="400" width="300" height="77"/>
                             </scrollView>
                             <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="pJk-yg-1v2" customClass="ColorSlider" customModule="SamApp" customModuleProvider="target">
-                                <rect key="frame" x="225" y="285" width="150" height="31"/>
+                                <rect key="frame" x="225" y="347" width="150" height="31"/>
                                 <color key="minimumTrackTintColor" red="1" green="0.022213712609999998" blue="0.038823768160000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="maximumTrackTintColor" red="1" green="0.022213712609999998" blue="0.038823768160000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <action selector="endEdit:" destination="Qi2-Jd-zOX" eventType="touchUpInside" id="1AE-f5-Kp0"/>
-                                    <action selector="endEdit:" destination="Qi2-Jd-zOX" eventType="touchUpOutside" id="pg2-cE-zes"/>
+                                    <action selector="colorUpdated:" destination="Qi2-Jd-zOX" eventType="touchUpOutside" id="NyV-07-lKf"/>
+                                    <action selector="colorUpdated:" destination="Qi2-Jd-zOX" eventType="touchUpInside" id="wbf-yY-d8A"/>
                                 </connections>
                             </slider>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Samix" translatesAutoresizingMaskIntoConstraints="NO" id="2aw-XO-SYg">
-                                <rect key="frame" x="180" y="64" width="240" height="128"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Samix" translatesAutoresizingMaskIntoConstraints="NO" id="2aw-XO-SYg">
+                                <rect key="frame" x="150" y="39" width="300" height="300"/>
                             </imageView>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mSb-XY-Q2A">
+                                <rect key="frame" x="157" y="300" width="30" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
+                                        <color key="value" red="0.40733506944444442" green="0.35356760213543709" blue="0.021789366027141856" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="2.0"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="3.0"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="pJk-yg-1v2" firstAttribute="top" secondItem="2aw-XO-SYg" secondAttribute="bottom" constant="10" id="1mo-tU-iCX"/>
                             <constraint firstItem="4ek-f4-IC3" firstAttribute="top" secondItem="pJk-yg-1v2" secondAttribute="bottom" constant="20" id="B7M-yE-sZW"/>
+                            <constraint firstItem="mSb-XY-Q2A" firstAttribute="leading" secondItem="2aw-XO-SYg" secondAttribute="leading" constant="10" id="FAe-J4-9Xp"/>
                             <constraint firstItem="2aw-XO-SYg" firstAttribute="centerX" secondItem="sJX-8k-dVt" secondAttribute="centerX" id="K0a-hq-NOm"/>
-                            <constraint firstItem="2aw-XO-SYg" firstAttribute="leading" secondItem="sJX-8k-dVt" secondAttribute="leadingMargin" constant="10" id="Maf-8G-Jtl"/>
+                            <constraint firstItem="mSb-XY-Q2A" firstAttribute="bottom" secondItem="2aw-XO-SYg" secondAttribute="bottom" constant="-10" id="Uit-07-GpL"/>
                             <constraint firstItem="pJk-yg-1v2" firstAttribute="centerX" secondItem="sJX-8k-dVt" secondAttribute="centerX" id="fSw-Ac-csM"/>
-                            <constraint firstItem="2aw-XO-SYg" firstAttribute="top" secondItem="r9t-no-anB" secondAttribute="bottom" constant="10" id="fWq-7L-D8I"/>
+                            <constraint firstItem="hbc-Xa-uyd" firstAttribute="top" secondItem="4ek-f4-IC3" secondAttribute="bottom" constant="15" id="jC2-Oy-MoC"/>
                             <constraint firstItem="hbc-Xa-uyd" firstAttribute="centerX" secondItem="sJX-8k-dVt" secondAttribute="centerX" id="uVU-y0-hTa"/>
                             <constraint firstItem="4ek-f4-IC3" firstAttribute="centerX" secondItem="sJX-8k-dVt" secondAttribute="centerX" id="vZZ-zi-STL"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="k6b-0Z-eK8">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="Lky-HY-hiN"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="Lky-HY-hiN">
+                            <connections>
+                                <segue destination="LcH-s9-56q" kind="presentation" identifier="pushImage" id="mk1-hp-Qmp"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="blendModeBtnsContainer" destination="4ek-f4-IC3" id="UDE-Vi-fGk"/>
                         <outlet property="mainScrollView" destination="sJX-8k-dVt" id="CLL-8n-FIg"/>
                         <outlet property="photoView" destination="2aw-XO-SYg" id="cSZ-qw-ClM"/>
                         <outlet property="redSlider" destination="pJk-yg-1v2" id="iLv-YI-gpJ"/>
+                        <outlet property="resetButton" destination="hbc-Xa-uyd" id="3fw-GG-qsh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W1N-yv-eUY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1054" y="349"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="OCq-OL-5rt">
+            <objects>
+                <navigationController id="LcH-s9-56q" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KTl-dg-n5O">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Xrv-VO-plw" kind="relationship" relationship="rootViewController" id="V2h-DA-UIu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jDt-2i-POU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1766" y="349"/>
+        </scene>
+        <!--Generated Image View Controller-->
+        <scene sceneID="PmR-HM-fm0">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Xrv-VO-plw" customClass="GeneratedImageViewController" customModule="SamApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RWb-HW-po9"/>
+                        <viewControllerLayoutGuide type="bottom" id="zSi-Q9-2QT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="emP-9O-tAr">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7CL-3g-3fX">
+                                <rect key="frame" x="150" y="87" width="300" height="300"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mU2-O7-oNw">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                    </imageView>
+                                </subviews>
+                                <connections>
+                                    <outlet property="delegate" destination="Xrv-VO-plw" id="8sT-IB-ddA"/>
+                                </connections>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7CL-3g-3fX" firstAttribute="centerX" secondItem="emP-9O-tAr" secondAttribute="centerX" id="DXm-rz-WJg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Hnm-ka-IvU">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="tSc-pM-aKv">
+                            <connections>
+                                <segue destination="BBY-xV-cMM" kind="unwind" unwindAction="unwinded:" id="RLO-Vr-eB6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="generatedPhoto" destination="mU2-O7-oNw" id="ZNH-Lv-8FB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jei-sr-zEt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="BBY-xV-cMM" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2573" y="349"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WAP-ts-dhM">

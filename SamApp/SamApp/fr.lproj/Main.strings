@@ -2,8 +2,11 @@
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "5PH-8n-cBK"; */
 "5PH-8n-cBK.normalTitle" = "Commencer";
 
-/* Class = "UIBarButtonItem"; title = "Sauvegarder"; ObjectID = "Lky-HY-hiN"; */
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "Lky-HY-hiN"; */
 "Lky-HY-hiN.title" = "Générer";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "P4t-S7-Hwa"; */
+"P4t-S7-Hwa.title" = "Title";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "hbc-Xa-uyd"; */
 "hbc-Xa-uyd.normalTitle" = "Réinitialiser";

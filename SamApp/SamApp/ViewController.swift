@@ -6,6 +6,19 @@
 //  Copyright © 2015 Jean-Louis Danielo. All rights reserved.
 //
 
+
+/**
+    @TODO
+
+    Donner la possibilité de récupérer une image depuis sa galerie photo 
+        - ❗️Penser à l'imageview suivante
+    Le plus :
+        - Afficher un message d'erreur si on essaye de passer à la vue suivante sans avoir sélectionné une photo (utiliser UIAlertController)
+*/
+
+
+
+
 import UIKit
 
 class ViewController: UIViewController {

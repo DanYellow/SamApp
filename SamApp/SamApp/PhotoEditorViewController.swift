@@ -6,6 +6,18 @@
 //  Copyright © 2015 Jean-Louis Danielo. All rights reserved.
 //
 
+
+
+/**
+    TODO for this page
+
+    Afficher sur le rectangle en bas à gauche le couleur courante
+    Déactiver un effet en appuyant sur un bouton déjà sélectionné (utiliser la fonction "changeBlendMode" déjà présente. Merci 😉
+    Donner la possibilité de modifier chaque canal (actuellement seul le rouge est géré par le slider) (rouge, bleu, vert et pourquoi pas l'opacité)
+        - Je veux que ces sliders aient leur barre vert pour le vert, bleu pour le bleu et gris (n'importe lequel) pour l'alpha
+        - une partie du code est déjà présente dans la fonction "colorUpdated"
+*/
+
 import UIKit
 
 class PhotoEditorViewController: ViewController {
@@ -14,6 +26,7 @@ class PhotoEditorViewController: ViewController {
     @IBOutlet weak var mainScrollView: UIScrollView!
     @IBOutlet weak var photoView: UIImageView!
     @IBOutlet weak var blendModeBtnsContainer: UIScrollView!
+    @IBOutlet weak var resetButton: UIButton!
     
     
     @IBOutlet weak var redSlider: ColorSlider!
@@ -58,12 +71,13 @@ class PhotoEditorViewController: ViewController {
         }
         
         // We order keys by name alphabetically...
-        let blendModeArray = blendModeDict.sort { $0.0 < $1.0 };
+        let blendModesArray = blendModeDict.sort { $0.0 < $1.0 };
         
         let btnWidth:CGFloat = 100;
         
-        // We enumerate
-        for (index, item) in blendModeArray.enumerate() {
+        // We enumerate through blendModesArray
+        // place item represents the 
+        for (index, item) in blendModesArray.enumerate() {
             let xPos:CGFloat = CGFloat(index * 20) + btnWidth * CGFloat(index);
             
             let aBlendBtn:BlendModeButton = BlendModeButton(frame: CGRectMake(xPos, 0, btnWidth, 50),
@@ -84,17 +98,23 @@ class PhotoEditorViewController: ViewController {
         
         let lastBtn = blendModeBtnsContainer.subviews.filter{$0 is BlendModeButton}.last as! BlendModeButton;
         blendModeBtnsContainer.contentSize = CGSizeMake(CGRectGetMaxX(lastBtn.frame), CGRectGetHeight(lastBtn.frame));
-        blendModeBtnsContainer.frame = CGRectMake(CGRectGetMinX(blendModeBtnsContainer.frame),
+        // We set the frame of the container of blendmode button
+        // x : 10 to be elegant
+        // y : we get the y from storyboard placement
+        // width : screen width - 20 (the view'x is 10)
+        // height : height of blendmode button
+        blendModeBtnsContainer.frame = CGRectMake(10,
             CGRectGetMinY(blendModeBtnsContainer.frame),
-            CGRectGetWidth(blendModeBtnsContainer.frame),
+            CGRectGetWidth(self.view.frame) - 20,
             CGRectGetHeight(lastBtn.frame));
+        print(blendModeBtnsContainer.frame);
     }
     
     // MARK: IBAction
-    @IBAction func resetBlendMode(sender: BlendModeButton) {
+    @IBAction func resetBlendMode(sender: UIButton) {
         self.photoView.image = originalImage;
         
-        BlendModeButton.resetButtons(sender);
+//        BlendModeButton.resetButtons(sender);
     }
     
     @IBAction func changeBlendMode(sender: BlendModeButton) {
@@ -103,20 +123,48 @@ class PhotoEditorViewController: ViewController {
     }
     
     // User holds down the slider
-    @IBAction func endEdit(sender: UISlider) {
+    @IBAction func colorUpdated(sender: ColorSlider) {
         let redChannel:CGFloat = CGFloat(floor(sender.value * 256));
         
         let greenChannel:CGFloat = CGFloat(drand48());
         let blueChannel:CGFloat = CGFloat(drand48());
         let alphaChannel:CGFloat = 1.0;
         
+        
         tintColor = UIColor(red: redChannel/255, green: greenChannel, blue: blueChannel, alpha: alphaChannel);
-//        let color = CGColorCreateCopyWithAlpha(<#T##color: CGColor?##CGColor?#>, <#T##alpha: CGFloat##CGFloat#>)
+        
+        
+//        // Retrieve each component of current color
+//        let colorComponents = CGColorGetComponents(tintColor.CGColor);
+//        // Retrieve alpha value of component (colorComponents[3] works too)
+//        let alphaChannel = CGColorGetAlpha(tintColor.CGColor);
+//        // Retrieve current slider value
+//        let sliderValue = CGFloat(sender.value);
+//        
+//        switch (sender.channelName) {
+//        case .RED:
+//            tintColor = UIColor(red: sliderValue, green: colorComponents[1], blue: colorComponents[3], alpha: alphaChannel)
+//            break;
+//        case .GREEN:
+//            tintColor = UIColor(red: colorComponents[0], green: sliderValue, blue: colorComponents[3], alpha: alphaChannel)
+//            break;
+//        case .BLUE:
+//            tintColor = UIColor(red: colorComponents[0], green: colorComponents[1], blue: sliderValue, alpha: alphaChannel)
+//            break;
+//        case .ALPHA:
+//            tintColor = UIColor(red: colorComponents[0], green: colorComponents[1], blue: colorComponents[3], alpha: sliderValue)
+//            break;
+//            
+//        default:
+//            break;
+//        }
+        
+        
         applyBlendMode()
     }
     
     // encode in base64 the image create by the user
-    @IBAction func generateBase64Image(sender: UIButton) {
+    @IBAction func generateBase64Image() {
         let imageData = UIImagePNGRepresentation(self.photoView.image!)
         base64Str = imageData!.base64EncodedStringWithOptions([])
     }
@@ -127,25 +175,24 @@ class PhotoEditorViewController: ViewController {
         self.photoView.image = tintedImage;
     }
     
-    // This part manage every
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "passurl") {
-            let navigationController: AnyObject = segue.destinationViewController
-//            let destViewController = navigationController.topViewController as! GeneratedImageViewController;
-//            
-//            destViewController.base64ImageStr = base64Str;
-        }
-    }
-
-    /*
-    // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if (segue.identifier == "pushImage") {
+            let navigationController: AnyObject = segue.destinationViewController
+            let destViewController = navigationController.topViewController as! GeneratedImageViewController;
+            generateBase64Image();
+            destViewController.base64ImageStr = base64Str;
+            // Because the pus his manage by storyboard we don't need to 
+            // set a method to push only properties needed for next view are useful
+        }
     }
-    */
+    
+    // Maybe one of the coolest feature of Storyboard
+    // when you put a function with this signature "(segue:UIStoryboardSegue)"
+    // Any component drag to 'exit' can back to this view it's very useful
+    @IBAction func unwinded(segue:UIStoryboardSegue) {
+        print(segue.sourceViewController)
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

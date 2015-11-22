@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A2450061C022C460034E2E1 /* CALayer+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2450051C022C460034E2E1 /* CALayer+Utils.swift */; settings = {ASSET_TAGS = (); }; };
 		1A734E0E1C01AB0E00FB97D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A734E0D1C01AB0E00FB97D0 /* AppDelegate.swift */; };
 		1A734E101C01AB0E00FB97D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A734E0F1C01AB0E00FB97D0 /* ViewController.swift */; };
 		1A734E131C01AB0E00FB97D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A734E111C01AB0E00FB97D0 /* Main.storyboard */; };
@@ -22,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A2450051C022C460034E2E1 /* CALayer+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+Utils.swift"; sourceTree = "<group>"; };
+		1A24500A1C022FCB0034E2E1 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		1A734E0A1C01AB0E00FB97D0 /* SamApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SamApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A734E0D1C01AB0E00FB97D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A734E0F1C01AB0E00FB97D0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -37,7 +40,6 @@
 		1A734E371C01BE5F00FB97D0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		1A734E3B1C01BEC800FB97D0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1A734E3D1C01BECF00FB97D0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		1A734E4F1C01D40600FB97D0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		1A734E511C01D41800FB97D0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		1A734E561C02012900FB97D0 /* GeneratedImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedImageViewController.swift; sourceTree = "<group>"; };
 		1A734E5A1C02024100FB97D0 /* ColorSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSlider.swift; sourceTree = "<group>"; };
@@ -54,6 +56,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A2450071C022DC90034E2E1 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				1A734E261C01B0D700FB97D0 /* UIImage+Utils.swift */,
+				1A734E2B1C01B8DE00FB97D0 /* UIButton+Utils.swift */,
+				1A2450051C022C460034E2E1 /* CALayer+Utils.swift */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		1A2450081C022DE30034E2E1 /* Custom views */ = {
+			isa = PBXGroup;
+			children = (
+				1A734E5A1C02024100FB97D0 /* ColorSlider.swift */,
+				1A734E201C01AE4800FB97D0 /* BlendModeButton.swift */,
+			);
+			name = "Custom views";
+			sourceTree = "<group>";
+		};
 		1A734E011C01AB0E00FB97D0 = {
 			isa = PBXGroup;
 			children = (
@@ -76,11 +97,9 @@
 				1A734E0D1C01AB0E00FB97D0 /* AppDelegate.swift */,
 				1A734E0F1C01AB0E00FB97D0 /* ViewController.swift */,
 				1A734E561C02012900FB97D0 /* GeneratedImageViewController.swift */,
-				1A734E5A1C02024100FB97D0 /* ColorSlider.swift */,
-				1A734E261C01B0D700FB97D0 /* UIImage+Utils.swift */,
-				1A734E2B1C01B8DE00FB97D0 /* UIButton+Utils.swift */,
-				1A734E201C01AE4800FB97D0 /* BlendModeButton.swift */,
 				1A734E2D1C01BA4000FB97D0 /* PhotoEditorViewController.swift */,
+				1A2450081C022DE30034E2E1 /* Custom views */,
+				1A2450071C022DC90034E2E1 /* Categories */,
 				1A734E111C01AB0E00FB97D0 /* Main.storyboard */,
 				1A734E3C1C01BEC800FB97D0 /* Localizable.strings */,
 				1A734E141C01AB0E00FB97D0 /* Assets.xcassets */,
@@ -164,6 +183,7 @@
 				1A734E101C01AB0E00FB97D0 /* ViewController.swift in Sources */,
 				1A734E571C02012900FB97D0 /* GeneratedImageViewController.swift in Sources */,
 				1A734E211C01AE4800FB97D0 /* BlendModeButton.swift in Sources */,
+				1A2450061C022C460034E2E1 /* CALayer+Utils.swift in Sources */,
 				1A734E0E1C01AB0E00FB97D0 /* AppDelegate.swift in Sources */,
 				1A734E2E1C01BA4000FB97D0 /* PhotoEditorViewController.swift in Sources */,
 				1A734E271C01B0D700FB97D0 /* UIImage+Utils.swift in Sources */,
@@ -179,8 +199,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				1A734E121C01AB0E00FB97D0 /* Base */,
-				1A734E4F1C01D40600FB97D0 /* fr */,
 				1A734E511C01D41800FB97D0 /* en */,
+				1A24500A1C022FCB0034E2E1 /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -333,6 +353,7 @@
 				1A734E1E1C01AB0E00FB97D0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
