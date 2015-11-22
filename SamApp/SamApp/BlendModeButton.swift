@@ -29,10 +29,41 @@ class BlendModeButton: UIButton {
         self.titleLabel?.textAlignment = .Center;
         self.addTarget(self, action: "btnSelected:", forControlEvents: .TouchUpInside);
         self.setBackgroundImage(self.imageWithColor(.blackColor()), forState: .Selected);
-        
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
+    /// Change the status of the current button selected
+    func btnSelected(sender: BlendModeButton) {
+        self.manageSelectedBtns(sender);
+        self.selected = !self.selected;
+    }
+    
+    /// Set to disable **every** button in the page
+    func manageSelectedBtns(sender: BlendModeButton) {
+        resetButtonsManager(sender);
+    }
+    
+    static func resetButtons(sender: BlendModeButton) {
+        sender.selected = false;
+    }
+    
+    func resetButtonsManager(sender: BlendModeButton) {
+        let blendModeButtons = self.superview?.subviews.filter( { $0 is BlendModeButton });
+        
+        if let btns = blendModeButtons {
+            for btn in btns {
+                if let blendModeBtn = btn as? BlendModeButton {
+                    // If the current button is already selected we change
+                    if blendModeBtn != sender {
+                        blendModeBtn.selected = false;
+                    }
+                }
+            }
+        }
+    }
+
 }

@@ -6,6 +6,7 @@ A photo very lightweight photo app build on Swift 2.X
 
 ### Tutorials :
 - [Ray wenderlich (en)](http://raywenderlich.com/) : Good tutorials but may be too completed (sometimes there is so many features in them)
+- [Appcoda (en)](http://www.appcoda.com)
 
 
 ### Documention
@@ -14,11 +15,13 @@ A photo very lightweight photo app build on Swift 2.X
 
 
 ### Good practices
-- [How to comment well](http://nshipster.com/swift-documentation/)
-- [Styleguide in general](https://github.com/raywenderlich/swift-style-guide)
+- [How to comment well (en)](http://nshipster.com/swift-documentation/)
+- [Styleguide in general (en)](https://github.com/raywenderlich/swift-style-guide)
    
    
 ### Misc
 - [Fonts available](http://iosfonts.com/)
+- [Storyboard translated](http://stackoverflow.com/questions/15094259/is-it-possible-to-update-a-localized-storyboards-strings)
+
 
 

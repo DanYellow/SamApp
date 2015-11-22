@@ -1,3 +1,9 @@
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "5PH-8n-cBK"; */
 "5PH-8n-cBK.normalTitle" = "Commencer";
+
+/* Class = "UIBarButtonItem"; title = "Sauvegarder"; ObjectID = "Lky-HY-hiN"; */
+"Lky-HY-hiN.title" = "Générer";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "hbc-Xa-uyd"; */
+"hbc-Xa-uyd.normalTitle" = "Réinitialiser";
