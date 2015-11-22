@@ -1,0 +1,24 @@
+/* 
+  Localizable.strings
+  SamApp
+
+  Created by Jean-Louis Danielo on 22/11/2015.
+  Copyright © 2015 Jean-Louis Danielo. All rights reserved.
+*/
+
+// BlendModes
+"normal" = "Normal";
+"multiply" = "Produit";
+"screen" = "Superposition";
+"overlay" = "Incrustation";
+"darken" = "Obscurcir";
+"lighten" = "Eclaircir";
+"color dodge" = "Densité couleur –";
+"color burn" = "Densité couleur +";
+"soft light" = "Lumière tamisée";
+"hard light" = "Lumière crue";
+"difference" = "Différence";
+"hue" = "Teinte";
+"saturation" = "Saturation";
+"color" = "Couleur";
+"luminosity" = "Luminosité";
