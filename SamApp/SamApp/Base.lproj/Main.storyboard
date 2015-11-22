@@ -161,7 +161,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Hnm-ka-IvU">
-                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="tSc-pM-aKv">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="tSc-pM-aKv">
                             <connections>
                                 <segue destination="BBY-xV-cMM" kind="unwind" unwindAction="unwinded:" id="RLO-Vr-eB6"/>
                             </connections>

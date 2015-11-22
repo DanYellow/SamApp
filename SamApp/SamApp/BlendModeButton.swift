@@ -26,7 +26,7 @@ class BlendModeButton: UIButton {
         self.layer.masksToBounds = true;
         self.backgroundColor = UIColor.blueColor()
         self.tintColor = UIColor.whiteColor()
-        self.titleLabel?.textAlignment = .Center;
+        self.titleLabel!.textAlignment = .Center;
         self.addTarget(self, action: "btnSelected:", forControlEvents: .TouchUpInside);
         self.setBackgroundImage(self.imageWithColor(.blackColor()), forState: .Selected);
     }
