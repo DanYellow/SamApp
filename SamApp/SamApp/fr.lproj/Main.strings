@@ -6,7 +6,7 @@
 "Lky-HY-hiN.title" = "Générer";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "hbc-Xa-uyd"; */
-"hbc-Xa-uyd.normalTitle" = "Button";
+"hbc-Xa-uyd.normalTitle" = "Réinitialiser";
 
 /* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "tSc-pM-aKv"; */
 "tSc-pM-aKv.title" = "Fermer";

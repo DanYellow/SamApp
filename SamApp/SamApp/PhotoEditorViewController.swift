@@ -27,17 +27,15 @@ class PhotoEditorViewController: ViewController {
     @IBOutlet weak var photoView: UIImageView!
     @IBOutlet weak var blendModeBtnsContainer: UIScrollView!
     @IBOutlet weak var resetButton: UIButton!
-    
-    
     @IBOutlet weak var redSlider: ColorSlider!
     
     
     var blendModeSelected:CGBlendMode = CGBlendMode.Normal;
-    var originalImage: UIImage = UIImage(named:"Samix")!
-    var tintColor: UIColor = UIColor.whiteColor();
+    // The name of the image is related to the file Assets.xcassets
+    // This filetype is and container of images. It's way more elegant than have every image in the file explorer
+    private var originalImage: UIImage = UIImage(named:"Samix")!
+    private var tintColor: UIColor = UIColor.whiteColor();
     var base64Str:String?
-    
-    typealias BlendModeType = [String: CGBlendMode]
     
     // This array contains every blend mode available in Photoshop
     // We put keywords "let" before because theses arrays will not mutate
@@ -120,6 +118,11 @@ class PhotoEditorViewController: ViewController {
     @IBAction func changeBlendMode(sender: BlendModeButton) {
         blendModeSelected = sender.blendMode;
         applyBlendMode();
+//        
+//        UIView.animateWithDuration(0.2, animations: {
+//            self.redSlider.setValue(Float(drand48()), animated: true);
+//        });
+        
     }
     
     // User holds down the slider
@@ -133,7 +136,7 @@ class PhotoEditorViewController: ViewController {
         
         tintColor = UIColor(red: redChannel/255, green: greenChannel, blue: blueChannel, alpha: alphaChannel);
         
-        
+        // Uncomment this code (cmd + /) to manage the objective : "Donner la possibilité de modifier chaque canal..."
 //        // Retrieve each component of current color
 //        let colorComponents = CGColorGetComponents(tintColor.CGColor);
 //        // Retrieve alpha value of component (colorComponents[3] works too)
