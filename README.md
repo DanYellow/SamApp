@@ -2,6 +2,11 @@
 A photo very lightweight photo app build on Swift 2.X
 
 
+# In this branch
+- Correction of "exercices" from branch "master"
+- Delegate - You can't be good in iOS if you don't know this design pattern
+
+
 # Useful links
 
 ### Tutorials :

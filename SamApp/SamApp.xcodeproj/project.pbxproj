@@ -20,6 +20,7 @@
 		1A734E3A1C01BEC800FB97D0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A734E3C1C01BEC800FB97D0 /* Localizable.strings */; };
 		1A734E571C02012900FB97D0 /* GeneratedImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A734E561C02012900FB97D0 /* GeneratedImageViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		1A734E5B1C02024100FB97D0 /* ColorSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A734E5A1C02024100FB97D0 /* ColorSlider.swift */; settings = {ASSET_TAGS = (); }; };
+		1AC288321C090C280070CDA2 /* AddTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC288311C090C280070CDA2 /* AddTextViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		1A734E3D1C01BECF00FB97D0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1A734E561C02012900FB97D0 /* GeneratedImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedImageViewController.swift; sourceTree = "<group>"; };
 		1A734E5A1C02024100FB97D0 /* ColorSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSlider.swift; sourceTree = "<group>"; };
+		1AC288311C090C280070CDA2 /* AddTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTextViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				1A734E0F1C01AB0E00FB97D0 /* ViewController.swift */,
 				1A734E561C02012900FB97D0 /* GeneratedImageViewController.swift */,
 				1A734E2D1C01BA4000FB97D0 /* PhotoEditorViewController.swift */,
+				1AC288311C090C280070CDA2 /* AddTextViewController.swift */,
 				1A2450081C022DE30034E2E1 /* Custom views */,
 				1A2450071C022DC90034E2E1 /* Categories */,
 				1A734E111C01AB0E00FB97D0 /* Main.storyboard */,
@@ -183,6 +186,7 @@
 				1A734E101C01AB0E00FB97D0 /* ViewController.swift in Sources */,
 				1A734E571C02012900FB97D0 /* GeneratedImageViewController.swift in Sources */,
 				1A734E211C01AE4800FB97D0 /* BlendModeButton.swift in Sources */,
+				1AC288321C090C280070CDA2 /* AddTextViewController.swift in Sources */,
 				1A2450061C022C460034E2E1 /* CALayer+Utils.swift in Sources */,
 				1A734E0E1C01AB0E00FB97D0 /* AppDelegate.swift in Sources */,
 				1A734E2E1C01BA4000FB97D0 /* PhotoEditorViewController.swift in Sources */,

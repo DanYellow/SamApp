@@ -27,7 +27,13 @@ class PhotoEditorViewController: ViewController {
     @IBOutlet weak var photoView: UIImageView!
     @IBOutlet weak var blendModeBtnsContainer: UIScrollView!
     @IBOutlet weak var resetButton: UIButton!
+    
+    
+    // Management of slider
     @IBOutlet weak var redSlider: ColorSlider!
+    @IBOutlet weak var greenSlider: ColorSlider!
+    @IBOutlet weak var blueSlider: ColorSlider!
+    @IBOutlet weak var alphaSlider: ColorSlider!
     
     
     var blendModeSelected:CGBlendMode = CGBlendMode.Normal;
@@ -53,7 +59,11 @@ class PhotoEditorViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // We associate to each slider which color composant it will change
         redSlider.channelName = .RED;
+        greenSlider.channelName = .GREEN;
+        blueSlider.channelName = .BLUE;
+        alphaSlider.channelName = .ALPHA;
         
         let lastView:UIView = mainScrollView.subviews.last!;
 
@@ -127,40 +137,32 @@ class PhotoEditorViewController: ViewController {
     
     // User holds down the slider
     @IBAction func colorUpdated(sender: ColorSlider) {
-        let redChannel:CGFloat = CGFloat(floor(sender.value * 256));
-        
-        let greenChannel:CGFloat = CGFloat(drand48());
-        let blueChannel:CGFloat = CGFloat(drand48());
-        let alphaChannel:CGFloat = 1.0;
-        
-        
-        tintColor = UIColor(red: redChannel/255, green: greenChannel, blue: blueChannel, alpha: alphaChannel);
-        
         // Uncomment this code (cmd + /) to manage the objective : "Donner la possibilité de modifier chaque canal..."
-//        // Retrieve each component of current color
-//        let colorComponents = CGColorGetComponents(tintColor.CGColor);
-//        // Retrieve alpha value of component (colorComponents[3] works too)
-//        let alphaChannel = CGColorGetAlpha(tintColor.CGColor);
-//        // Retrieve current slider value
-//        let sliderValue = CGFloat(sender.value);
-//        
-//        switch (sender.channelName) {
-//        case .RED:
-//            tintColor = UIColor(red: sliderValue, green: colorComponents[1], blue: colorComponents[3], alpha: alphaChannel)
-//            break;
-//        case .GREEN:
-//            tintColor = UIColor(red: colorComponents[0], green: sliderValue, blue: colorComponents[3], alpha: alphaChannel)
-//            break;
-//        case .BLUE:
-//            tintColor = UIColor(red: colorComponents[0], green: colorComponents[1], blue: sliderValue, alpha: alphaChannel)
-//            break;
-//        case .ALPHA:
-//            tintColor = UIColor(red: colorComponents[0], green: colorComponents[1], blue: colorComponents[3], alpha: sliderValue)
-//            break;
-//            
-//        default:
-//            break;
-//        }
+        // Retrieve each component of current color
+        // Like this we can change only one component of the color
+        let colorComponents = CGColorGetComponents(tintColor.CGColor);
+        // Retrieve alpha value of component (colorComponents[3] works too)
+        let alphaChannel = CGColorGetAlpha(tintColor.CGColor);
+        // Retrieve current slider value
+        let sliderValue = CGFloat(sender.value);
+        
+        switch (sender.channelName) {
+        case .RED:
+            tintColor = UIColor(red: sliderValue, green: colorComponents[1], blue: colorComponents[3], alpha: alphaChannel)
+            break;
+        case .GREEN:
+            tintColor = UIColor(red: colorComponents[0], green: sliderValue, blue: colorComponents[3], alpha: alphaChannel)
+            break;
+        case .BLUE:
+            tintColor = UIColor(red: colorComponents[0], green: colorComponents[1], blue: sliderValue, alpha: alphaChannel)
+            break;
+        case .ALPHA:
+            tintColor = UIColor(red: colorComponents[0], green: colorComponents[1], blue: colorComponents[3], alpha: sliderValue)
+            break;
+            
+        default:
+            break;
+        }
         
         
         applyBlendMode()
@@ -178,7 +180,7 @@ class PhotoEditorViewController: ViewController {
         self.photoView.image = tintedImage;
     }
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // In a storyboard-based application, you will often want to do a little preparation before navigation <- Apple's engineers said that and they right
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "pushImage") {
             let navigationController: AnyObject = segue.destinationViewController
