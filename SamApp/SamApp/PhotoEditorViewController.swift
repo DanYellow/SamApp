@@ -10,8 +10,9 @@
 
 /**
     TODO for this page
-
     
+    - Put the reverse color of colorIndicatorView's background for border color (layer.borderColor property). E.g. : If the background is black, then its border color have to be white (remember in Cocoa, UIColor component value is ranged between 0 and 1
+    -
 */
 
 import UIKit
@@ -31,7 +32,7 @@ class PhotoEditorViewController: ViewController {
     @IBOutlet weak var blueSlider: ColorSlider!
     
     // This view is an return of the color selected
-    @IBOutlet weak var colorIndicator: UIView!
+    @IBOutlet weak var colorIndicatorView: UIView!
     
     
     var blendModeSelected:CGBlendMode = CGBlendMode.Normal;
@@ -56,6 +57,7 @@ class PhotoEditorViewController: ViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.whiteColor();
         
         // We associate to each slider which color composant it will change
         redSlider.channelName = .RED;
@@ -64,12 +66,12 @@ class PhotoEditorViewController: ViewController {
         
         blueSlider.translatesAutoresizingMaskIntoConstraints = false;
         
-        tintColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1.0);
+
         
         let alphaSlider:ColorSlider = ColorSlider(frame: CGRectZero);
         alphaSlider.channelName = .ALPHA;
         // This line is very important it prevents xcode to do silly thing by adding unwanted constraints and worse 
-        // crash the app for too many constraint. Oh the irony...
+        // crash the app for too many constraints. Oh the irony...
         alphaSlider.translatesAutoresizingMaskIntoConstraints = false;
         // addTarget is an method to add an event to object eligible like UIButton, UIGestureRecognizer or, for this case, a custom UISlider
         // action argument indicate which method have to be called when the "forControlEvents" is done
@@ -78,7 +80,16 @@ class PhotoEditorViewController: ViewController {
         // UIControlEvents.TouchUpOutside === .TouchUpOutside
         // It's just an shortned version
         alphaSlider.addTarget(self, action: "colorUpdated:", forControlEvents: UIControlEvents.TouchUpOutside);
+        alphaSlider.maximumTrackTintColor = UIColor.lightGrayColor();
+        alphaSlider.minimumTrackTintColor = UIColor.lightGrayColor();
+        alphaSlider.value = 0.5;
         self.view.addSubview(alphaSlider);
+        
+        // We init the tint color with slider values
+        tintColor = UIColor(red: CGFloat(redSlider.value),
+            green: CGFloat(greenSlider.value),
+            blue: CGFloat(blueSlider.value),
+            alpha: CGFloat(alphaSlider.value));
         
         // Except for unwind segue
         // What Storyboard can do
@@ -161,11 +172,6 @@ class PhotoEditorViewController: ViewController {
                 constant: 30
             )
         );
-        
-        let lastView:UIView = mainScrollView.subviews.last!;
-
-        print((mainScrollView.subviews as NSArray).valueForKeyPath("self.center"));
-        mainScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.view.frame), 1000); //CGRectGetMaxY(lastView.frame)
 
         var blendModeDict = [String: CGBlendMode]()
     
@@ -176,22 +182,25 @@ class PhotoEditorViewController: ViewController {
             blendModeDict[blendModeName] = aBlendMode.0;
         }
         
-        // We order keys by name alphabetically...
+        // We order keys by name alphabetically
         let blendModesArray = blendModeDict.sort { $0.0 < $1.0 };
         
         let btnWidth:CGFloat = 100;
         
         // We enumerate through blendModesArray
-        // place item represents the 
         for (index, item) in blendModesArray.enumerate() {
             let xPos:CGFloat = CGFloat(index * 20) + btnWidth * CGFloat(index);
             
             let aBlendBtn:BlendModeButton = BlendModeButton(frame: CGRectMake(xPos, 0, btnWidth, 50),
                 blendMode: item.1);
+            aBlendBtn.delegate = self;
             aBlendBtn.titleLabel?.adjustsFontSizeToFitWidth = true;
             aBlendBtn.backgroundColor = UIColor.redColor()
             aBlendBtn.setTitle(item.0 as String, forState: .Normal);
-            aBlendBtn.addTarget(self, action: "changeBlendMode:", forControlEvents: .TouchUpInside);
+            
+            /// We remove this line because thanks to delegate
+            /// the behaviour of "TouchUpInside" of BlendButtonMode manage the binding of events. The logic in "changeBlendMode" method is now in "btnSelected" method
+//            aBlendBtn.addTarget(self, action: "changeBlendMode:", forControlEvents: .TouchUpInside);
             
             blendModeBtnsContainer.addSubview(aBlendBtn);
         }
@@ -199,8 +208,11 @@ class PhotoEditorViewController: ViewController {
         // We filter every member of class "BlendModeButton" in blendModeBtnsContainer
         // and we take the first element 
         let firstBtn = blendModeBtnsContainer.subviews.filter{$0 is BlendModeButton}[0] as? BlendModeButton;
-        firstBtn!.selected = true;
-
+        // We check if the first button exists
+        if let firstBlendModeBtn = firstBtn {
+            firstBlendModeBtn.selected = true;
+            blendModeSelected = firstBlendModeBtn.blendMode
+        }
         
         let lastBtn = blendModeBtnsContainer.subviews.filter{$0 is BlendModeButton}.last as! BlendModeButton;
         blendModeBtnsContainer.contentSize = CGSizeMake(CGRectGetMaxX(lastBtn.frame), CGRectGetHeight(lastBtn.frame));
@@ -213,6 +225,9 @@ class PhotoEditorViewController: ViewController {
             CGRectGetMinY(blendModeBtnsContainer.frame),
             CGRectGetWidth(self.view.frame) - 20,
             CGRectGetHeight(lastBtn.frame));
+        
+        mainScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.view.frame),
+                                                mainScrollView.bottomestUIView().maxY + CGRectGetHeight((self.navigationController?.navigationBar.frame)!));
     }
     
     // MARK: IBAction
@@ -221,18 +236,7 @@ class PhotoEditorViewController: ViewController {
         
         BlendModeButton.resetButtons(sender);
     }
-    
-    @IBAction func changeBlendMode(sender: BlendModeButton) {
-        if !sender.selected {
-            // an @IBAction called programatically. 
-            // Yep it's possible but not the inverse
-            resetBlendMode(sender);
-        } else {
-            blendModeSelected = sender.blendMode;
-            applyBlendMode();
-        }
-        
-    }
+
     
     // User holds down the slider
     @IBAction func colorUpdated(sender: ColorSlider) {
@@ -265,7 +269,8 @@ class PhotoEditorViewController: ViewController {
         
         let colorComponentsAfterUpdate = CGColorGetComponents(tintColor.CGColor);
         
-        colorIndicator.backgroundColor = UIColor(red: colorComponentsAfterUpdate[0], green: colorComponentsAfterUpdate[1], blue: colorComponentsAfterUpdate[2], alpha: 1.0);
+        colorIndicatorView.backgroundColor = UIColor(red: colorComponentsAfterUpdate[0], green: colorComponentsAfterUpdate[1], blue: colorComponentsAfterUpdate[2], alpha: 1.0);
+        
         applyBlendMode()
     }
     
@@ -305,4 +310,17 @@ class PhotoEditorViewController: ViewController {
         // Dispose of any resources that can be recreated.
     }
 
+}
+
+extension PhotoEditorViewController: BlendModeButtonDelegate {
+    func btnSelected(sender: BlendModeButton) {
+        if !sender.selected {
+            // an @IBAction called programatically.
+            // Yep it's possible but not the inverse
+            resetBlendMode(sender);
+        } else {
+            blendModeSelected = sender.blendMode;
+            applyBlendMode();
+        }
+    }
 }

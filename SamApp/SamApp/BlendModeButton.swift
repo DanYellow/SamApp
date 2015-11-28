@@ -14,6 +14,8 @@ class BlendModeButton: UIButton {
     /// CGBlendMode related to the button
     var blendMode:CGBlendMode;
     
+    var delegate: BlendModeButtonDelegate?;
+    
     init(frame aRect:CGRect, blendMode aBlendMode:CGBlendMode) {
         
         /// This property must be declared before super (parent/mother) init
@@ -40,6 +42,8 @@ class BlendModeButton: UIButton {
     func btnSelected(sender: BlendModeButton) {
         self.manageSelectedBtns(sender);
         self.selected = !self.selected;
+        
+        delegate?.btnSelected(sender);
     }
     
     /// Set to disable **every** button in the page
@@ -67,5 +71,9 @@ class BlendModeButton: UIButton {
             }
         }
     }
+}
 
+/// Called when button is selected
+protocol BlendModeButtonDelegate {
+    func btnSelected(sender: BlendModeButton);
 }

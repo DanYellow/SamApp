@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1A2450061C022C460034E2E1 /* CALayer+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2450051C022C460034E2E1 /* CALayer+Utils.swift */; settings = {ASSET_TAGS = (); }; };
+		1A564F8B1C09C5AA007880F3 /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A564F8A1C09C5AA007880F3 /* UIView+Utils.swift */; settings = {ASSET_TAGS = (); }; };
 		1A734E0E1C01AB0E00FB97D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A734E0D1C01AB0E00FB97D0 /* AppDelegate.swift */; };
 		1A734E101C01AB0E00FB97D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A734E0F1C01AB0E00FB97D0 /* ViewController.swift */; };
 		1A734E131C01AB0E00FB97D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A734E111C01AB0E00FB97D0 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 		1A2450051C022C460034E2E1 /* CALayer+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+Utils.swift"; sourceTree = "<group>"; };
 		1A24500E1C02576D0034E2E1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		1A2450101C0257970034E2E1 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		1A564F8A1C09C5AA007880F3 /* UIView+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
 		1A734E0A1C01AB0E00FB97D0 /* SamApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SamApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A734E0D1C01AB0E00FB97D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A734E0F1C01AB0E00FB97D0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 				1A734E261C01B0D700FB97D0 /* UIImage+Utils.swift */,
 				1A734E2B1C01B8DE00FB97D0 /* UIButton+Utils.swift */,
 				1A2450051C022C460034E2E1 /* CALayer+Utils.swift */,
+				1A564F8A1C09C5AA007880F3 /* UIView+Utils.swift */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				1A734E271C01B0D700FB97D0 /* UIImage+Utils.swift in Sources */,
 				1A734E5B1C02024100FB97D0 /* ColorSlider.swift in Sources */,
 				1A734E2C1C01B8DE00FB97D0 /* UIButton+Utils.swift in Sources */,
+				1A564F8B1C09C5AA007880F3 /* UIView+Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
