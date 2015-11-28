@@ -19,6 +19,7 @@ class ColorSlider: UISlider {
     
     var channelName:ChannelName = ChannelName.RED;
     
+    // We put the override keyword because our init as the same name of parent view init
     override init(frame: CGRect) {
         super.init(frame: frame);
     }
