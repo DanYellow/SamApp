@@ -287,8 +287,15 @@ class PhotoEditorViewController: ViewController {
     
     // encode in base64 the image create by the user
     @IBAction func generateBase64Image() {
-        let imageData = UIImagePNGRepresentation(self.photoView.image!)
+        // We create a context (canvas) to contain our image
+        // We can also use the method "UIGraphicsBeginImageContext" but we use some
+        UIGraphicsBeginImageContextWithOptions(self.photoView.frame.size, true, UIScreen.mainScreen().scale)
+        self.photoView.layer.renderInContext(UIGraphicsGetCurrentContext()!);
+
+        let imageData = UIImagePNGRepresentation(UIGraphicsGetImageFromCurrentImageContext())
         base64Str = imageData!.base64EncodedStringWithOptions([])
+        
+        UIGraphicsGetCurrentContext();
     }
     
     // Apply the blend mode
