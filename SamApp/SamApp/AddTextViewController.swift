@@ -29,6 +29,8 @@ class AddTextViewController: UIViewController {
     func closeModal(segue: UIStoryboard) ->() {
         self.dismissViewControllerAnimated(true, completion: nil);
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

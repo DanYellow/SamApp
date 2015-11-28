@@ -75,10 +75,6 @@ class GeneratedImageViewController: UIViewController {
             presentViewController(ac, animated: true, completion: nil)
         }
     }
-    
-    @IBAction func dismissEvent(sender: AnyObject) {
-        performSegueWithIdentifier("dismissModal", sender: self)
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

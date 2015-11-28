@@ -12,7 +12,7 @@
     TODO for this page
     
     - Put the reverse color of colorIndicatorView's background for border color (layer.borderColor property). E.g. : If the background is black, then its border color have to be white (remember in Cocoa, UIColor component value is ranged between 0 and 1
-    -
+    - set a **translated** title for editTextBtn
 */
 
 import UIKit
@@ -176,9 +176,9 @@ class PhotoEditorViewController: ViewController {
         
         // editTextBtn
         let editTextBtn:UIButton = UIButton(type: .System);
-        editTextBtn.frame = CGRect(x: 34, y: 45, width: 45, height: 445);
-        editTextBtn.setTitle("trutr", forState: .Normal);
-        editTextBtn.backgroundColor = UIColor.redColor();
+        editTextBtn.setTitle("please change my text and I want to be translated", forState: .Normal);
+        // The text is too long so we create a line break
+        editTextBtn.titleLabel?.lineBreakMode = .ByWordWrapping;
         editTextBtn.addTarget(self, action: "showTextEditor", forControlEvents: .TouchUpInside);
         mainScrollView.addSubview(editTextBtn);
         
@@ -195,8 +195,7 @@ class PhotoEditorViewController: ViewController {
                 constant: 30
             )
         );
-//
-//        // We want the Height of blueSlider for alphaSlider
+
         mainScrollView.addConstraint(
             NSLayoutConstraint(
                 item: editTextBtn,
@@ -221,6 +220,7 @@ class PhotoEditorViewController: ViewController {
             )
         );
         
+        // NSLayout constraint can also be created with a "visual format"
         let views:[String:UIButton] = ["button": editTextBtn];
         mainScrollView.addConstraints(
             NSLayoutConstraint.constraintsWithVisualFormat("[button(200.0)]",
@@ -233,9 +233,8 @@ class PhotoEditorViewController: ViewController {
         // this property force mainScrollView to update its layout in other words "notify it" to know its new guests
         mainScrollView.layoutIfNeeded()
         
-        // NSLayoutConstraint can also be attributed by
+
         var blendModeDict = [String: CGBlendMode]()
-    
         // We create an dictionary (associated array) of blend mode
         // key is blendmode name and value the blend mode
         for aBlendMode in zip(blendModeList, blendModeListNames) {
@@ -245,15 +244,15 @@ class PhotoEditorViewController: ViewController {
         
         // We order keys by name alphabetically
         let blendModesArray = blendModeDict.sort { $0.0 < $1.0 };
-        
+
         let btnWidth:CGFloat = 100;
-        
         // We enumerate through blendModesArray
         for (index, item) in blendModesArray.enumerate() {
             let xPos:CGFloat = CGFloat(index * 20) + btnWidth * CGFloat(index);
             
             let aBlendBtn:BlendModeButton = BlendModeButton(frame: CGRectMake(xPos, 0, btnWidth, 50),
                 blendMode: item.1);
+            // This line indicate that this ViewController manage the delegate method of the objects BlendModeButton
             aBlendBtn.delegate = self;
             aBlendBtn.titleLabel?.adjustsFontSizeToFitWidth = true;
             aBlendBtn.backgroundColor = UIColor.redColor()
@@ -287,7 +286,6 @@ class PhotoEditorViewController: ViewController {
             CGRectGetWidth(self.view.frame) - 20,
             CGRectGetHeight(lastBtn.frame));
         
-        print(CGRectGetWidth(self.view.frame));
         mainScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.view.frame),
                                                 mainScrollView.bottomestUIView().maxY + CGRectGetHeight((self.navigationController?.navigationBar.frame)!));
 
@@ -295,7 +293,6 @@ class PhotoEditorViewController: ViewController {
         photoViewTextlayer.alignmentMode = kCAAlignmentJustified;
         photoViewTextlayer.string = "hello";
         photoViewTextlayer.wrapped = true;
-        photoViewTextlayer.name = "photoText";
         photoViewTextlayer.zPosition = 0;
         photoViewTextlayer.contentsScale = UIScreen.mainScreen().scale;
         photoViewTextlayer.frame = CGRectMake(27, 75, 267, 320);
@@ -311,9 +308,7 @@ class PhotoEditorViewController: ViewController {
     }
 
     
-    // User holds down the slider
     @IBAction func colorUpdated(sender: ColorSlider) {
-        // Uncomment this code (cmd + /) to manage the objective : "Donner la possibilité de modifier chaque canal..."
         // Retrieve each component of current color
         // Like this we can change only one component of the color
         let colorComponents = CGColorGetComponents(tintColor.CGColor);

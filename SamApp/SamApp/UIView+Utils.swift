@@ -58,4 +58,15 @@ extension UIView {
         return frames[0];
     }
 
+    /// Return a CALayer or a specific name
+    func layerForName(layerName layerName:String) -> CALayer {
+        for layer:CALayer in self.layer.sublayers! {
+            if layer.name == layerName {
+                return layer;
+            }
+        }
+        
+        return CALayer();
+    }
+
 }
