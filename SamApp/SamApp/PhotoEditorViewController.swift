@@ -273,9 +273,6 @@ class PhotoEditorViewController: ViewController {
         case .ALPHA:
             tintColor = UIColor(red: colorComponents[0], green: colorComponents[1], blue: colorComponents[2], alpha: sliderValue)
             break;
-            
-        default:
-            break;
         }
         
         let colorComponentsAfterUpdate = CGColorGetComponents(tintColor.CGColor);

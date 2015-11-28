@@ -26,9 +26,9 @@
 
 /* Begin PBXFileReference section */
 		1A2450051C022C460034E2E1 /* CALayer+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+Utils.swift"; sourceTree = "<group>"; };
-		1A24500E1C02576D0034E2E1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
-		1A2450101C0257970034E2E1 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		1A564F8A1C09C5AA007880F3 /* UIView+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
+		1A564F8F1C09FC77007880F3 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		1A564F951C09FCE0007880F3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		1A734E0A1C01AB0E00FB97D0 /* SamApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SamApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A734E0D1C01AB0E00FB97D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A734E0F1C01AB0E00FB97D0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -207,8 +207,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				1A734E121C01AB0E00FB97D0 /* Base */,
-				1A24500E1C02576D0034E2E1 /* en */,
-				1A2450101C0257970034E2E1 /* fr */,
+				1A564F8F1C09FC77007880F3 /* fr */,
+				1A564F951C09FCE0007880F3 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
