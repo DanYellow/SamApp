@@ -10,3 +10,6 @@
 
 /* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "tSc-pM-aKv"; */
 "tSc-pM-aKv.title" = "Fermer";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Dkr-ra-i5s"; */
+"Dkr-ra-i5s.normalTitle" = "Save to my album";
