@@ -4,7 +4,10 @@ A photo very lightweight photo app build on Swift 2.X
 
 # In this branch
 - Correction of "exercices" from branch "master"
-- Delegate - You can't be good in iOS if you don't know this design pattern
+- Delegate - You can't be good in iOS if you don't know this design pattern. It allows you to dispatch an event to all subscribers of the delegate
+- NSLayoutContraints programmatically, yep !
+- CALayer (little introduction to it)
+- 
 
 
 # Useful links
