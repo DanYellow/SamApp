@@ -17,7 +17,7 @@
 
 import UIKit
 
-class PhotoEditorViewController: ViewController {
+class PhotoEditorViewController: UIViewController {
 
     // The black/gray dot indicates that this object have an reference to the storyboard
     @IBOutlet weak var mainScrollView: UIScrollView!
@@ -368,7 +368,7 @@ class PhotoEditorViewController: ViewController {
     }
     
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation <- Apple's engineers said that and they right
+    // In a storyboard-based application, you will often want to do a little preparation before navigation <- Apple's engineers said that and they're right
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "pushImage") {
             let navigationController: AnyObject = segue.destinationViewController
@@ -383,9 +383,9 @@ class PhotoEditorViewController: ViewController {
     // Maybe one of the coolest feature of Storyboard
     // when you put a function with this signature "(segue:UIStoryboardSegue)"
     // Any component drag to 'exit' can back to this view it's very useful
-    @IBAction func unwinded(segue:UIStoryboardSegue) {
-        print(segue.sourceViewController)
-    }
+//    @IBAction func unwinded(segue:UIStoryboardSegue) {
+//        print(segue.sourceViewController)
+//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
