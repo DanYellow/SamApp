@@ -37,6 +37,22 @@
             </objects>
             <point key="canvasLocation" x="340" y="349"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Wud-aa-QHc">
+            <objects>
+                <navigationController id="Hx0-MZ-6Hf" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Nxy-Vf-8EU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Dus-gB-h3P" kind="relationship" relationship="rootViewController" id="8iQ-Zx-tRb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GpM-Et-h59" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="874" y="-461"/>
+        </scene>
         <!--Photo Editor View Controller-->
         <scene sceneID="ivp-CZ-dq2">
             <objects>
@@ -94,6 +110,12 @@
                                     <action selector="colorUpdated:" destination="Qi2-Jd-zOX" eventType="touchUpInside" id="t2j-5u-q2T"/>
                                 </connections>
                             </slider>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4ek-f4-IC3">
+                                <rect key="frame" x="150" y="508" width="300" height="77"/>
+                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="150" y="435" width="300" height="77"/>
+                                </variation>
+                            </scrollView>
                             <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="hAC-cf-nl1" customClass="ColorSlider" customModule="SamApp" customModuleProvider="target">
                                 <rect key="frame" x="225" y="451" width="150" height="31"/>
                                 <constraints>
@@ -107,12 +129,6 @@
                                     <action selector="colorUpdated:" destination="Qi2-Jd-zOX" eventType="touchUpOutside" id="qbU-Pg-xKz"/>
                                 </connections>
                             </slider>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4ek-f4-IC3">
-                                <rect key="frame" x="150" y="508" width="300" height="77"/>
-                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="150" y="435" width="300" height="77"/>
-                                </variation>
-                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -167,6 +183,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jDt-2i-POU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1766" y="349"/>
+        </scene>
+        <!--Add Text View Controller-->
+        <scene sceneID="ijS-r0-KBw">
+            <objects>
+                <viewController id="Dus-gB-h3P" customClass="AddTextViewController" customModule="SamApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Opv-zE-UoA"/>
+                        <viewControllerLayoutGuide type="bottom" id="juu-Tq-Lfb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aWJ-gR-UVv">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AEg-cP-9YC">
+                                <rect key="frame" x="168" y="153" width="265" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="AEg-cP-9YC" firstAttribute="centerX" secondItem="aWJ-gR-UVv" secondAttribute="centerX" id="ZVr-bG-4IW"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="SuG-nt-YvY"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mNn-Iu-iHn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1630" y="-461"/>
         </scene>
         <!--Generated Image View Controller-->
         <scene sceneID="PmR-HM-fm0">
