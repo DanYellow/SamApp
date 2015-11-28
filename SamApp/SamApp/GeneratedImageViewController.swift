@@ -26,6 +26,8 @@ class GeneratedImageViewController: UIViewController {
     /// Base64-encoded data.
     var base64ImageStr:String!
     
+    @IBOutlet weak var saveBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
