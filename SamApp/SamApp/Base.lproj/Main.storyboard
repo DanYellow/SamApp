@@ -50,15 +50,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hbc-Xa-uyd">
-                                <rect key="frame" x="277" y="545" width="46" height="30"/>
+                                <rect key="frame" x="277" y="606" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
+                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="377" y="545" width="46" height="30"/>
+                                </variation>
                                 <connections>
                                     <action selector="resetBlendMode:" destination="Qi2-Jd-zOX" eventType="touchUpInside" id="L4p-ka-Vwf"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4ek-f4-IC3">
-                                <rect key="frame" x="150" y="400" width="300" height="77"/>
-                            </scrollView>
                             <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="pJk-yg-1v2" customClass="ColorSlider" customModule="SamApp" customModuleProvider="target">
                                 <rect key="frame" x="225" y="347" width="150" height="31"/>
                                 <color key="minimumTrackTintColor" red="1" green="0.022213712609999998" blue="0.038823768160000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -70,6 +70,9 @@
                             </slider>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Samix" translatesAutoresizingMaskIntoConstraints="NO" id="2aw-XO-SYg">
                                 <rect key="frame" x="150" y="39" width="300" height="300"/>
+                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="250" y="39" width="300" height="300"/>
+                                </variation>
                             </imageView>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mSb-XY-Q2A">
                                 <rect key="frame" x="157" y="300" width="30" height="30"/>
@@ -82,14 +85,45 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="3.0"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="QAI-9Q-UnC" customClass="ColorSlider" customModule="SamApp" customModuleProvider="target">
+                                <rect key="frame" x="225" y="400" width="150" height="31"/>
+                                <color key="minimumTrackTintColor" red="0.0064969315860000003" green="0.83437894570000004" blue="0.2668831586" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="maximumTrackTintColor" red="0.0064969315860000003" green="0.83437894570000004" blue="0.2668831586" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="colorUpdated:" destination="Qi2-Jd-zOX" eventType="touchUpOutside" id="aw3-iJ-Bug"/>
+                                    <action selector="colorUpdated:" destination="Qi2-Jd-zOX" eventType="touchUpInside" id="t2j-5u-q2T"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="hAC-cf-nl1" customClass="ColorSlider" customModule="SamApp" customModuleProvider="target">
+                                <rect key="frame" x="225" y="451" width="150" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="DAU-a2-Qs5"/>
+                                    <constraint firstAttribute="width" constant="146" id="Nke-uA-F6I"/>
+                                </constraints>
+                                <color key="minimumTrackTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="maximumTrackTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="colorUpdated:" destination="Qi2-Jd-zOX" eventType="touchUpInside" id="7I1-r5-Afw"/>
+                                    <action selector="colorUpdated:" destination="Qi2-Jd-zOX" eventType="touchUpOutside" id="qbU-Pg-xKz"/>
+                                </connections>
+                            </slider>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4ek-f4-IC3">
+                                <rect key="frame" x="150" y="508" width="300" height="77"/>
+                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="150" y="435" width="300" height="77"/>
+                                </variation>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="pJk-yg-1v2" firstAttribute="top" secondItem="2aw-XO-SYg" secondAttribute="bottom" constant="10" id="1mo-tU-iCX"/>
-                            <constraint firstItem="4ek-f4-IC3" firstAttribute="top" secondItem="pJk-yg-1v2" secondAttribute="bottom" constant="20" id="B7M-yE-sZW"/>
+                            <constraint firstItem="hAC-cf-nl1" firstAttribute="top" secondItem="QAI-9Q-UnC" secondAttribute="bottom" constant="15" id="7bR-bz-Wti"/>
                             <constraint firstItem="mSb-XY-Q2A" firstAttribute="leading" secondItem="2aw-XO-SYg" secondAttribute="leading" constant="10" id="FAe-J4-9Xp"/>
                             <constraint firstItem="2aw-XO-SYg" firstAttribute="centerX" secondItem="sJX-8k-dVt" secondAttribute="centerX" id="K0a-hq-NOm"/>
                             <constraint firstItem="mSb-XY-Q2A" firstAttribute="bottom" secondItem="2aw-XO-SYg" secondAttribute="bottom" constant="-10" id="Uit-07-GpL"/>
+                            <constraint firstItem="hAC-cf-nl1" firstAttribute="centerX" secondItem="sJX-8k-dVt" secondAttribute="centerX" id="Y1l-Ax-pTk"/>
+                            <constraint firstItem="QAI-9Q-UnC" firstAttribute="centerX" secondItem="sJX-8k-dVt" secondAttribute="centerX" id="ZrY-lB-X7m"/>
+                            <constraint firstItem="QAI-9Q-UnC" firstAttribute="top" secondItem="pJk-yg-1v2" secondAttribute="bottom" constant="15" id="cYp-8E-Isq"/>
                             <constraint firstItem="pJk-yg-1v2" firstAttribute="centerX" secondItem="sJX-8k-dVt" secondAttribute="centerX" id="fSw-Ac-csM"/>
                             <constraint firstItem="hbc-Xa-uyd" firstAttribute="top" secondItem="4ek-f4-IC3" secondAttribute="bottom" constant="15" id="jC2-Oy-MoC"/>
                             <constraint firstItem="hbc-Xa-uyd" firstAttribute="centerX" secondItem="sJX-8k-dVt" secondAttribute="centerX" id="uVU-y0-hTa"/>
@@ -105,6 +139,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="blendModeBtnsContainer" destination="4ek-f4-IC3" id="UDE-Vi-fGk"/>
+                        <outlet property="blueSlider" destination="hAC-cf-nl1" id="OcL-x2-fDM"/>
+                        <outlet property="colorIndicator" destination="mSb-XY-Q2A" id="c14-PL-FJL"/>
+                        <outlet property="greenSlider" destination="QAI-9Q-UnC" id="lek-GZ-JpS"/>
                         <outlet property="mainScrollView" destination="sJX-8k-dVt" id="CLL-8n-FIg"/>
                         <outlet property="photoView" destination="2aw-XO-SYg" id="cSZ-qw-ClM"/>
                         <outlet property="redSlider" destination="pJk-yg-1v2" id="iLv-YI-gpJ"/>

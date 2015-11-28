@@ -11,11 +11,7 @@
 /**
     TODO for this page
 
-    Afficher sur le rectangle en bas à gauche le couleur courante
-    Déactiver un effet en appuyant sur un bouton déjà sélectionné (utiliser la fonction "changeBlendMode" déjà présente. Merci 😉
-    Donner la possibilité de modifier chaque canal (actuellement seul le rouge est géré par le slider) (rouge, bleu, vert et pourquoi pas l'opacité)
-        - Je veux que ces sliders aient leur barre vert pour le vert, bleu pour le bleu et gris (n'importe lequel) pour l'alpha
-        - une partie du code est déjà présente dans la fonction "colorUpdated"
+    
 */
 
 import UIKit
@@ -33,14 +29,16 @@ class PhotoEditorViewController: ViewController {
     @IBOutlet weak var redSlider: ColorSlider!
     @IBOutlet weak var greenSlider: ColorSlider!
     @IBOutlet weak var blueSlider: ColorSlider!
-    @IBOutlet weak var alphaSlider: ColorSlider!
+    
+    // This view is an return of the color selected
+    @IBOutlet weak var colorIndicator: UIView!
     
     
     var blendModeSelected:CGBlendMode = CGBlendMode.Normal;
     // The name of the image is related to the file Assets.xcassets
     // This filetype is and container of images. It's way more elegant than have every image in the file explorer
     private var originalImage: UIImage = UIImage(named:"Samix")!
-    private var tintColor: UIColor = UIColor.whiteColor();
+    private var tintColor: UIColor = UIColor();
     var base64Str:String?
     
     // This array contains every blend mode available in Photoshop
@@ -63,14 +61,114 @@ class PhotoEditorViewController: ViewController {
         redSlider.channelName = .RED;
         greenSlider.channelName = .GREEN;
         blueSlider.channelName = .BLUE;
+        
+        blueSlider.translatesAutoresizingMaskIntoConstraints = false;
+        
+        tintColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1.0);
+        
+        let alphaSlider:ColorSlider = ColorSlider(frame: CGRectZero);
         alphaSlider.channelName = .ALPHA;
+        // This line is very important it prevents xcode to do silly thing by adding unwanted constraints and worse 
+        // crash the app for too many constraint. Oh the irony...
+        alphaSlider.translatesAutoresizingMaskIntoConstraints = false;
+        // addTarget is an method to add an event to object eligible like UIButton, UIGestureRecognizer or, for this case, a custom UISlider
+        // action argument indicate which method have to be called when the "forControlEvents" is done
+        // Note the ":" (colon) at the end of "colorUpdated", we have to put them because the "colorUpdated" method takes a param
+        alphaSlider.addTarget(self, action: "colorUpdated:", forControlEvents: .TouchUpInside);
+        // UIControlEvents.TouchUpOutside === .TouchUpOutside
+        // It's just an shortned version
+        alphaSlider.addTarget(self, action: "colorUpdated:", forControlEvents: UIControlEvents.TouchUpOutside);
+        self.view.addSubview(alphaSlider);
+        
+        // Except for unwind segue
+        // What Storyboard can do
+        // code can do it too !
+        // Let's add an constraint to alphaSlider
+        
+        // NSLayoutConstraint is a little bit complex at the first sight 
+        // so let's explain this
+        
+        // self.view.addConstraint
+        // The method "addConstraint" is called by the container view, it's very important ! It takes an NSLayoutConstraint object as param
+        // arg 1 - item : it's the item which recieved the constraint
+        // arg 2 - attribute : the name of the property which will be modified by the constraint (cmd + click on "NSLayoutAttribute.Width" to see the list)
+        // arg 3 - relatedBy :
+        // arg 4 - toItem : the name of the reference view (it can be the view which called the method addConstraint)
+        // arg 5 - attribute : the name of the property which will be use as reference
+        // arg 6 - multiplier : multiplier if you want to modify the relation
+        // arg 7 - constant : add an const if you want to modify the relation
+        
+        // We want the Width of blueSlider for alphaSlider
+        self.view.addConstraint(
+            NSLayoutConstraint(
+                item: alphaSlider,
+                attribute: NSLayoutAttribute.Width,
+                relatedBy: NSLayoutRelation.Equal,
+                toItem: blueSlider,
+                attribute: .Width,
+                multiplier: 1,
+                constant: 0
+            )
+        );
+        
+        // We want the Height of blueSlider for alphaSlider
+        self.view.addConstraint(
+            NSLayoutConstraint(
+                item: alphaSlider,
+                attribute: NSLayoutAttribute.Height,
+                relatedBy: NSLayoutRelation.Equal,
+                toItem: blueSlider,
+                attribute: .Height,
+                multiplier: 1,
+                constant: 0
+            )
+        );
+        
+        // It center alphaSlider in the superview
+        self.view.addConstraint(
+            NSLayoutConstraint(
+                item: alphaSlider,
+                attribute: .CenterX,
+                relatedBy: .Equal,
+                toItem: alphaSlider.superview,
+                attribute: .CenterX,
+                multiplier: 1,
+                constant: 0
+            )
+        );
+        
+        // We want to add 50px to blueSlider top position
+        self.view.addConstraint(
+            NSLayoutConstraint(
+                item: alphaSlider,
+                attribute: NSLayoutAttribute.Top,
+                relatedBy: NSLayoutRelation.Equal,
+                toItem: blueSlider,
+                attribute: .Bottom,
+                multiplier: 1,
+                constant: 15
+            )
+        );
+        
+        self.view.addConstraint(
+            NSLayoutConstraint(
+                item: blendModeBtnsContainer,
+                attribute: .Top,
+                relatedBy: NSLayoutRelation.Equal,
+                toItem: alphaSlider,
+                attribute: .Bottom,
+                multiplier: 1,
+                constant: 30
+            )
+        );
         
         let lastView:UIView = mainScrollView.subviews.last!;
 
-        mainScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.view.frame), CGRectGetMaxY(lastView.frame));
+        print((mainScrollView.subviews as NSArray).valueForKeyPath("self.center"));
+        mainScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.view.frame), 1000); //CGRectGetMaxY(lastView.frame)
 
         var blendModeDict = [String: CGBlendMode]()
-        
+    
         // We create an dictionary (associated array) of blend mode
         // key is blendmode name and value the blend mode
         for aBlendMode in zip(blendModeList, blendModeListNames) {
@@ -115,23 +213,24 @@ class PhotoEditorViewController: ViewController {
             CGRectGetMinY(blendModeBtnsContainer.frame),
             CGRectGetWidth(self.view.frame) - 20,
             CGRectGetHeight(lastBtn.frame));
-        print(blendModeBtnsContainer.frame);
     }
     
     // MARK: IBAction
-    @IBAction func resetBlendMode(sender: UIButton) {
+    @IBAction func resetBlendMode(sender: BlendModeButton) {
         self.photoView.image = originalImage;
         
-//        BlendModeButton.resetButtons(sender);
+        BlendModeButton.resetButtons(sender);
     }
     
     @IBAction func changeBlendMode(sender: BlendModeButton) {
-        blendModeSelected = sender.blendMode;
-        applyBlendMode();
-//        
-//        UIView.animateWithDuration(0.2, animations: {
-//            self.redSlider.setValue(Float(drand48()), animated: true);
-//        });
+        if !sender.selected {
+            // an @IBAction called programatically. 
+            // Yep it's possible but not the inverse
+            resetBlendMode(sender);
+        } else {
+            blendModeSelected = sender.blendMode;
+            applyBlendMode();
+        }
         
     }
     
@@ -148,23 +247,25 @@ class PhotoEditorViewController: ViewController {
         
         switch (sender.channelName) {
         case .RED:
-            tintColor = UIColor(red: sliderValue, green: colorComponents[1], blue: colorComponents[3], alpha: alphaChannel)
+            tintColor = UIColor(red: sliderValue, green: colorComponents[1], blue: colorComponents[2], alpha: alphaChannel)
             break;
         case .GREEN:
-            tintColor = UIColor(red: colorComponents[0], green: sliderValue, blue: colorComponents[3], alpha: alphaChannel)
+            tintColor = UIColor(red: colorComponents[0], green: sliderValue, blue: colorComponents[2], alpha: alphaChannel)
             break;
         case .BLUE:
             tintColor = UIColor(red: colorComponents[0], green: colorComponents[1], blue: sliderValue, alpha: alphaChannel)
             break;
         case .ALPHA:
-            tintColor = UIColor(red: colorComponents[0], green: colorComponents[1], blue: colorComponents[3], alpha: sliderValue)
+            tintColor = UIColor(red: colorComponents[0], green: colorComponents[1], blue: colorComponents[2], alpha: sliderValue)
             break;
             
         default:
             break;
         }
         
+        let colorComponentsAfterUpdate = CGColorGetComponents(tintColor.CGColor);
         
+        colorIndicator.backgroundColor = UIColor(red: colorComponentsAfterUpdate[0], green: colorComponentsAfterUpdate[1], blue: colorComponentsAfterUpdate[2], alpha: 1.0);
         applyBlendMode()
     }
     

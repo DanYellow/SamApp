@@ -19,8 +19,8 @@ class ColorSlider: UISlider {
     
     var channelName:ChannelName = ChannelName.RED;
     
-    init(aRect:CGRect) {
-        super.init(frame: aRect);
+    override init(frame: CGRect) {
+        super.init(frame: frame);
     }
     
     required init?(coder aDecoder: NSCoder) {
