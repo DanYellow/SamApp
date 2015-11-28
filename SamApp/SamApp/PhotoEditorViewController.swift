@@ -24,7 +24,7 @@ class PhotoEditorViewController: ViewController {
     @IBOutlet weak var photoView: UIImageView!
     @IBOutlet weak var blendModeBtnsContainer: UIScrollView!
     @IBOutlet weak var resetButton: UIButton!
-    
+
     
     // Management of slider
     @IBOutlet weak var redSlider: ColorSlider!
@@ -135,7 +135,7 @@ class PhotoEditorViewController: ViewController {
             )
         );
         
-        // It center alphaSlider in the superview
+        // It center alphaSlider in its superview
         self.view.addConstraint(
             NSLayoutConstraint(
                 item: alphaSlider,
@@ -172,7 +172,68 @@ class PhotoEditorViewController: ViewController {
                 constant: 30
             )
         );
+        
+        
+        // editTextBtn
+        let editTextBtn:UIButton = UIButton(type: .System);
+        editTextBtn.frame = CGRect(x: 34, y: 45, width: 45, height: 445);
+        editTextBtn.setTitle("trutr", forState: .Normal);
+        editTextBtn.backgroundColor = UIColor.redColor();
+        editTextBtn.addTarget(self, action: "showTextEditor", forControlEvents: .TouchUpInside);
+        mainScrollView.addSubview(editTextBtn);
+        
+        resetButton.translatesAutoresizingMaskIntoConstraints = false;
+        editTextBtn.translatesAutoresizingMaskIntoConstraints = false;
+        mainScrollView.addConstraint(
+            NSLayoutConstraint(
+                item: editTextBtn,
+                attribute: .Top,
+                relatedBy: NSLayoutRelation.Equal,
+                toItem: resetButton,
+                attribute: .Bottom,
+                multiplier: 1,
+                constant: 30
+            )
+        );
+//
+//        // We want the Height of blueSlider for alphaSlider
+        mainScrollView.addConstraint(
+            NSLayoutConstraint(
+                item: editTextBtn,
+                attribute: NSLayoutAttribute.Height,
+                relatedBy: NSLayoutRelation.Equal,
+                toItem: blueSlider,
+                attribute: .Height,
+                multiplier: 1.5,
+                constant: 0
+            )
+        );
 
+        mainScrollView.addConstraint(
+            NSLayoutConstraint(
+                item: editTextBtn,
+                attribute: .CenterX,
+                relatedBy: .Equal,
+                toItem: editTextBtn.superview,
+                attribute: .CenterX,
+                multiplier: 1,
+                constant: 0
+            )
+        );
+        
+        let views:[String:UIButton] = ["button": editTextBtn];
+        mainScrollView.addConstraints(
+            NSLayoutConstraint.constraintsWithVisualFormat("[button(200.0)]",
+                options: NSLayoutFormatOptions(rawValue: 0),
+                metrics: nil,
+                views: views
+            )
+        )
+        
+        // this property force mainScrollView to update its layout in other words "notify it" to know its new guests
+        mainScrollView.layoutIfNeeded()
+        
+        // NSLayoutConstraint can also be attributed by
         var blendModeDict = [String: CGBlendMode]()
     
         // We create an dictionary (associated array) of blend mode
@@ -226,9 +287,10 @@ class PhotoEditorViewController: ViewController {
             CGRectGetWidth(self.view.frame) - 20,
             CGRectGetHeight(lastBtn.frame));
         
+        print(CGRectGetWidth(self.view.frame));
         mainScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.view.frame),
                                                 mainScrollView.bottomestUIView().maxY + CGRectGetHeight((self.navigationController?.navigationBar.frame)!));
-        
+
         let photoViewTextlayer = CATextLayer()
         photoViewTextlayer.alignmentMode = kCAAlignmentJustified;
         photoViewTextlayer.string = "hello";
@@ -300,6 +362,16 @@ class PhotoEditorViewController: ViewController {
         let tintedImage = originalImage.tintWithColorAndBlendMode(tintColor, blendMode: blendModeSelected);
         self.photoView.image = tintedImage;
     }
+    
+    
+    func showTextEditor() {
+        // We display the view controller by its id set in the storyboard
+        // Select the NavigationController next to addTextViewController
+        let addTextViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Hello");
+        
+        self.presentViewController(addTextViewController!, animated: true, completion: nil);
+    }
+    
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation <- Apple's engineers said that and they right
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

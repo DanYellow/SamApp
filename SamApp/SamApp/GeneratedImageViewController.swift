@@ -6,13 +6,6 @@
 //  Copyright © 2015 Jean-Louis Danielo. All rights reserved.
 //
 
-/**
-    TODO for this page
-
-    Sauvegarder l'image sans l'album photo
-        - Utiliser la méthode "saveImageToAlbum" !
-*/
-
 import UIKit
 
 class GeneratedImageViewController: UIViewController {
