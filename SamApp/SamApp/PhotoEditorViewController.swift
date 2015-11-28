@@ -228,6 +228,17 @@ class PhotoEditorViewController: ViewController {
         
         mainScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.view.frame),
                                                 mainScrollView.bottomestUIView().maxY + CGRectGetHeight((self.navigationController?.navigationBar.frame)!));
+        
+        let photoViewTextlayer = CATextLayer()
+        photoViewTextlayer.alignmentMode = kCAAlignmentJustified;
+        photoViewTextlayer.string = "hello";
+        photoViewTextlayer.wrapped = true;
+        photoViewTextlayer.name = "photoText";
+        photoViewTextlayer.zPosition = 0;
+        photoViewTextlayer.contentsScale = UIScreen.mainScreen().scale;
+        photoViewTextlayer.frame = CGRectMake(27, 75, 267, 320);
+        photoViewTextlayer.font = UIFont(name: "Helvetica", size: 10.0);
+        self.photoView.layer.addSublayer(photoViewTextlayer);
     }
     
     // MARK: IBAction
