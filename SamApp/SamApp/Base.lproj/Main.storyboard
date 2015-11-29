@@ -40,7 +40,6 @@
         <!--Navigation Controller-->
         <scene sceneID="Wud-aa-QHc">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GpM-Et-h59" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="Hello" id="Hx0-MZ-6Hf" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Nxy-Vf-8EU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -50,6 +49,7 @@
                         <segue destination="Dus-gB-h3P" kind="relationship" relationship="rootViewController" id="8iQ-Zx-tRb"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GpM-Et-h59" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="874" y="-461"/>
         </scene>
@@ -261,7 +261,7 @@
                     <navigationItem key="navigationItem" id="Hnm-ka-IvU">
                         <barButtonItem key="leftBarButtonItem" title="Item" id="tSc-pM-aKv">
                             <connections>
-                                <segue destination="BBY-xV-cMM" kind="unwind" unwindAction="foo:" id="WZ0-CS-Lns"/>
+                                <segue destination="BBY-xV-cMM" kind="unwind" unwindAction="unwinded:" id="F19-Xg-AAH"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
