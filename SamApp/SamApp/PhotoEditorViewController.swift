@@ -365,7 +365,7 @@ class PhotoEditorViewController: UIViewController {
     @IBAction func generateBase64Image() {
         // We create a context (canvas) to contain our image
         // We can also use the method "UIGraphicsBeginImageContext" but we use some
-        UIGraphicsBeginImageContextWithOptions(self.photoView.frame.size, true, UIScreen.mainScreen().scale)
+        UIGraphicsBeginImageContextWithOptions(self.photoView.frame.size, false, UIScreen.mainScreen().scale)
         self.photoView.layer.renderInContext(UIGraphicsGetCurrentContext()!);
 
         let imageData = UIImagePNGRepresentation(UIGraphicsGetImageFromCurrentImageContext())

@@ -34,9 +34,13 @@ class GeneratedImageViewController: UIViewController {
         generatedPhotoContainer.backgroundColor = UIColor.redColor();
         generatedPhotoContainer.zoomScale = 1.0;
         
-        // 😯- This things is impossible in Obj-C
+        
+        
+        // 😯- These two next lines are impossible in Obj-C
         generatedPhoto.frame.origin.x = 0;
         generatedPhoto.frame.origin.y = 0;
+        
+        generatedPhoto.backgroundColor = UIColor.clearColor();
         
         // We check if there is a value in property base64ImageStr
         // If there is one the property is automatically associated to the const base64Str
@@ -60,6 +64,7 @@ class GeneratedImageViewController: UIViewController {
     (Removes the oldest data point if the data source contains kMaxDataPoints objects.)
     */
     @IBAction func saveImageToAlbum() {
+
         UIImageWriteToSavedPhotosAlbum(generatedPhoto.image!, self, "image:didFinishSavingWithError:contextInfo:", nil)
     }
     
