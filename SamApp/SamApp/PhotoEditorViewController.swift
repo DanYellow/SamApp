@@ -36,9 +36,13 @@ class PhotoEditorViewController: UIViewController {
     
     
     var blendModeSelected:CGBlendMode = CGBlendMode.Normal;
+    var isABlendModeActivated = true;
     // The name of the image is related to the file Assets.xcassets
     // This filetype is and container of images. It's way more elegant than have every image in the file explorer
-    private var originalImage: UIImage = UIImage(named:"Samix")!
+    var imageSelected:UIImage?;
+    
+    private var originalImage:UIImage = UIImage(named: "Samix")!;
+    
     private var tintColor: UIColor = UIColor();
     var base64Str:String?
     
@@ -66,6 +70,10 @@ class PhotoEditorViewController: UIViewController {
         
         blueSlider.translatesAutoresizingMaskIntoConstraints = false;
         
+        if imageSelected != nil {
+            originalImage = imageSelected!;
+            self.photoView.image = originalImage;
+        }
 
         
         let alphaSlider:ColorSlider = ColorSlider(frame: CGRectZero);
@@ -303,12 +311,26 @@ class PhotoEditorViewController: UIViewController {
     // MARK: IBAction
     @IBAction func resetBlendMode(sender: BlendModeButton) {
         self.photoView.image = originalImage;
-        
-        BlendModeButton.resetButtons(sender);
+        isABlendModeActivated = false;
+        BlendModeButton.resetButtons(blendModeBtnsContainer.subviews[0] as! BlendModeButton);
+    }
+    
+    private func resetButtons() {
+        let blendModeButtons:[BlendModeButton] = blendModeBtnsContainer.subviews.filter( { $0 is BlendModeButton }) as! [BlendModeButton];
+        blendModeButtons.forEach({ $0.selected = false });
     }
 
     
     @IBAction func colorUpdated(sender: ColorSlider) {
+        // New (great) feature from Swift 2.0
+        // guard is like a semantic if!/else but it's way better
+        // because we keep the value tested (in the case of let myVar = fooVar)
+        // outside the statement (we cannot see it in this case)
+        // ❗️guard statement needs a 'break/return' statement at the end
+        guard (isABlendModeActivated) else {
+            return;
+        }
+        
         // Retrieve each component of current color
         // Like this we can change only one component of the color
         let colorComponents = CGColorGetComponents(tintColor.CGColor);
@@ -354,6 +376,7 @@ class PhotoEditorViewController: UIViewController {
     
     // Apply the blend mode
     func applyBlendMode() {
+        isABlendModeActivated = true;
         let tintedImage = originalImage.tintWithColorAndBlendMode(tintColor, blendMode: blendModeSelected);
         self.photoView.image = tintedImage;
     }
