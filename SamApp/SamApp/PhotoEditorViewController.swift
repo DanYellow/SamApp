@@ -20,7 +20,7 @@
 
 import UIKit
 
-class PhotoEditorViewController: ViewController {
+class PhotoEditorViewController: UIViewController {
 
     // The black/gray dot indicates that this object have an reference to the storyboard
     @IBOutlet weak var mainScrollView: UIScrollView!
@@ -112,17 +112,12 @@ class PhotoEditorViewController: ViewController {
     @IBAction func resetBlendMode(sender: UIButton) {
         self.photoView.image = originalImage;
         
-//        BlendModeButton.resetButtons(sender);
+        BlendModeButton.resetButtons(blendModeBtnsContainer.subviews[0] as! BlendModeButton);
     }
     
     @IBAction func changeBlendMode(sender: BlendModeButton) {
         blendModeSelected = sender.blendMode;
         applyBlendMode();
-//        
-//        UIView.animateWithDuration(0.2, animations: {
-//            self.redSlider.setValue(Float(drand48()), animated: true);
-//        });
-        
     }
     
     // User holds down the slider

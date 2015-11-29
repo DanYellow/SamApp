@@ -47,8 +47,10 @@ class BlendModeButton: UIButton {
         resetButtonsManager(sender);
     }
     
-    static func resetButtons(sender: BlendModeButton) {
-        sender.selected = false;
+    static func resetButtons(sender: BlendModeButton) {        
+        let blendModeButtons:[BlendModeButton] = sender.superview?.subviews.filter( { $0 is BlendModeButton }) as! [BlendModeButton];
+        
+        blendModeButtons.forEach({ $0.selected = false });
     }
     
     func resetButtonsManager(sender: BlendModeButton) {

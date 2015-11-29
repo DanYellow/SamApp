@@ -33,7 +33,6 @@ class GeneratedImageViewController: UIViewController {
         // We are sure of the type of the parent so we put an exclamation mark (!)
         let generatedPhotoContainer = generatedPhoto.superview as! UIScrollView;
         generatedPhotoContainer.contentSize = CGSizeMake(CGRectGetWidth(generatedPhoto.frame), CGRectGetHeight(generatedPhoto.frame));
-//        generatedPhotoContainer.frame.size.height = CGRectGetHeight(generatedPhoto.frame);
         generatedPhotoContainer.minimumZoomScale = 1;
         generatedPhotoContainer.maximumZoomScale = 5;
         generatedPhotoContainer.clipsToBounds = true;
