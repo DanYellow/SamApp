@@ -2,7 +2,10 @@
 /* Class = "UIButton"; normalTitle = "Commencer"; ObjectID = "5PH-8n-cBK"; */
 "5PH-8n-cBK.normalTitle" = "Commencer";
 
-/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Dkr-ra-i5s"; */
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "BKc-LO-GBr"; */
+"BKc-LO-GBr.normalTitle" = "Choisir une photo";
+
+/* Class = "UIButton"; normalTitle = "Sauvegarder dans mon album"; ObjectID = "Dkr-ra-i5s"; */
 "Dkr-ra-i5s.normalTitle" = "Sauvegarder dans mon album";
 
 /* Class = "UIBarButtonItem"; title = "Générer"; ObjectID = "Lky-HY-hiN"; */
