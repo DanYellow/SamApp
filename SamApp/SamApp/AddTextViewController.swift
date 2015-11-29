@@ -12,6 +12,7 @@
     - Créer un délégué quimet à jour le texte de l'image sélectionnée
     - Afficher une vue au-dessus du clavier qui permet de changer la police du texte écrit
         • Indiquer la police utilisée
+        • La propriété inputAccessoryView pourrait t'aider
 */
 
 import UIKit
