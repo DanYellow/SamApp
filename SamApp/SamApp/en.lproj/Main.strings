@@ -2,14 +2,17 @@
 /* Class = "UIButton"; normalTitle = "Start"; ObjectID = "5PH-8n-cBK"; */
 "5PH-8n-cBK.normalTitle" = "Start";
 
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "BKc-LO-GBr"; */
+"BKc-LO-GBr.normalTitle" = "Choose a photo";
+
+/* Class = "UIButton"; normalTitle = "Save to my album"; ObjectID = "Dkr-ra-i5s"; */
+"Dkr-ra-i5s.normalTitle" = "Save to my album";
+
 /* Class = "UIBarButtonItem"; title = "Generate"; ObjectID = "Lky-HY-hiN"; */
 "Lky-HY-hiN.title" = "Generate";
 
 /* Class = "UIButton"; normalTitle = "Reset"; ObjectID = "hbc-Xa-uyd"; */
 "hbc-Xa-uyd.normalTitle" = "Reset";
 
-/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "tSc-pM-aKv"; */
+/* Class = "UIBarButtonItem"; title = "Fermer"; ObjectID = "tSc-pM-aKv"; */
 "tSc-pM-aKv.title" = "Fermer";
-
-/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Dkr-ra-i5s"; */
-"Dkr-ra-i5s.normalTitle" = "Save to my album";
