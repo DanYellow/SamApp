@@ -7,7 +7,7 @@ A photo very lightweight photo app build on Swift 2.X
 - Delegate - You can't be good in iOS if you don't know this design pattern. It allows you to dispatch an event to all subscribers of the delegate
 - NSLayoutContraints programmatically, yep !
 - CALayer (little introduction to it)
-- 
+- Guard statement, an elegant alternative to if/else
 
 
 # Useful links
@@ -20,7 +20,7 @@ A photo very lightweight photo app build on Swift 2.X
 ### Documention
 - [NSHipster (en)](http://nshipster.com) : Nice mix between a documentation and tutorial. Every documentorials are in Swift (2.X ?) and Objective-C (Mostly Swift)
 - [Swift code (fr)](http://www.swiftcode.fr/) : Translated documention of Swift. Partial but enough completed enough to understand some technical things
-
+- [Apple docs](https://developer.apple.com/library/ios/navigation) : The docs by apple. Note : Apple provide a nice ebook available for free on iBooks
 
 ### Good practices
 - [How to comment well (en)](http://nshipster.com/swift-documentation/)
