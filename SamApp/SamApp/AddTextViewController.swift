@@ -9,7 +9,8 @@
 /**
     TODO for this page
 
-    
+    - Create a delegate to update the text of the image selected
+    - Change the text font of the text selected
 */
 
 import UIKit

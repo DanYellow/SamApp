@@ -383,9 +383,10 @@ class PhotoEditorViewController: UIViewController {
     // Maybe one of the coolest feature of Storyboard
     // when you put a function with this signature "(segue:UIStoryboardSegue)"
     // Any component drag to 'exit' can back to this view it's very useful
-//    @IBAction func unwinded(segue:UIStoryboardSegue) {
-//        print(segue.sourceViewController)
-//    }
+    // The method MUST start by @IBAction or else, Storyboard will not display a unwind segue method
+    @IBAction func unwinded(segue:UIStoryboardSegue) {
+        print(segue.sourceViewController)
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
