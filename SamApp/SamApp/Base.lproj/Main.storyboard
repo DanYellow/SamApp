@@ -224,6 +224,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SuG-nt-YvY"/>
+                    <connections>
+                        <outlet property="photoTextField" destination="AEg-cP-9YC" id="em0-rg-NwX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mNn-Iu-iHn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

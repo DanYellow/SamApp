@@ -9,21 +9,22 @@
 /**
     TODO for this page
 
-    - Create a delegate to update the text of the image selected
-    - Change the text font of the text selected
+    - Créer un délégué quimet à jour le texte de l'image sélectionnée
+    - Afficher une vue au-dessus du clavier qui permet de changer la police du texte écrit
+        • Indiquer la police utilisée
 */
 
 import UIKit
 
 class AddTextViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.whiteColor();
         // Do any additional setup after loading the view.
         
         let closeButton:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "closeModal:");
-        
+
         self.navigationItem.leftBarButtonItem = closeButton;
     }
     
@@ -32,20 +33,8 @@ class AddTextViewController: UIViewController {
     }
     
     
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
