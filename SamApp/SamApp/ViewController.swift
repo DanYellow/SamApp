@@ -51,10 +51,7 @@ class ViewController: UIViewController {
         default:
             break;
         }
-       
-        
     }
-    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "photoEditor" {
@@ -69,8 +66,8 @@ class ViewController: UIViewController {
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-        imageSelected = image;
-        
+        imageSelected = image.resizeImage(targetSize: CGSizeMake(600, 600));
+        print(imageSelected?.size);
         dismissViewControllerAnimated(true, completion: nil)
     }
     

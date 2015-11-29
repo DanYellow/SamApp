@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 extension UIImage {
     /** 
@@ -62,5 +63,19 @@ extension UIImage {
         let newImage = UIGraphicsGetImageFromCurrentImageContext();
         
         return newImage
+    }
+    
+    
+    func resizeImage(targetSize sizeImg: CGSize, isOpaque: Bool = true) -> UIImage {
+        let rect = AVMakeRectWithAspectRatioInsideRect(self.size, CGRect(origin: CGPointZero, size: sizeImg));
+        let size = rect.size;
+        let scale:CGFloat = 0.0; // = UIScreen.mainScreen().scale
+        
+        UIGraphicsBeginImageContextWithOptions(size, isOpaque, scale);
+        self.drawInRect(CGRect(origin: CGPointZero, size: size));
+        let scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        return scaledImage;
     }
 }

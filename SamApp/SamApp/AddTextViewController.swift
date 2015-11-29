@@ -26,6 +26,7 @@ class AddTextViewController: UIViewController {
         let closeButton:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "closeModal:");
 
         self.navigationItem.leftBarButtonItem = closeButton;
+
     }
     
     func closeModal(segue: UIStoryboard) ->() {
