@@ -3,11 +3,9 @@ A photo very lightweight photo app build on Swift 2.X
 
 
 # In this branch
-- Correction of "exercices" from branch "master"
-- Delegate - You can't be good in iOS if you don't know this design pattern. It allows you to dispatch an event to all subscribers of the delegate
-- NSLayoutContraints programmatically, yep !
-- CALayer (little introduction to it)
-- Guard statement, an elegant alternative to if/else
+- Correction of "exercices" from branch "advanced-techniques-1"
+- UIGestureRecongnizer - A powerful API to manage complex gesture (or simple)
+- 
 
 
 # Useful links
