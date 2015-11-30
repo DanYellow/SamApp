@@ -21,6 +21,9 @@
 		1A734E3A1C01BEC800FB97D0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A734E3C1C01BEC800FB97D0 /* Localizable.strings */; };
 		1A734E571C02012900FB97D0 /* GeneratedImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A734E561C02012900FB97D0 /* GeneratedImageViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		1A734E5B1C02024100FB97D0 /* ColorSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A734E5A1C02024100FB97D0 /* ColorSlider.swift */; settings = {ASSET_TAGS = (); }; };
+		1AB97EF81C0CB5850005FACC /* ListFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB97EF71C0CB5850005FACC /* ListFonts.swift */; settings = {ASSET_TAGS = (); }; };
+		1AB97EFA1C0CCFEE0005FACC /* ListFontsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB97EF91C0CCFEE0005FACC /* ListFontsItem.swift */; settings = {ASSET_TAGS = (); }; };
+		1AB97EFC1C0CD0660005FACC /* ListFontItemXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AB97EFB1C0CD0660005FACC /* ListFontItemXib.xib */; settings = {ASSET_TAGS = (); }; };
 		1AC288321C090C280070CDA2 /* AddTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC288311C090C280070CDA2 /* AddTextViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -46,6 +49,9 @@
 		1A734E5A1C02024100FB97D0 /* ColorSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSlider.swift; sourceTree = "<group>"; };
 		1A7BD9911C0AF06F0018156B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		1A7BD9931C0AF0C60018156B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		1AB97EF71C0CB5850005FACC /* ListFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListFonts.swift; sourceTree = "<group>"; };
+		1AB97EF91C0CCFEE0005FACC /* ListFontsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListFontsItem.swift; sourceTree = "<group>"; };
+		1AB97EFB1C0CD0660005FACC /* ListFontItemXib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListFontItemXib.xib; sourceTree = "<group>"; };
 		1AC288311C090C280070CDA2 /* AddTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTextViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,6 +82,9 @@
 			children = (
 				1A734E5A1C02024100FB97D0 /* ColorSlider.swift */,
 				1A734E201C01AE4800FB97D0 /* BlendModeButton.swift */,
+				1AB97EF71C0CB5850005FACC /* ListFonts.swift */,
+				1AB97EF91C0CCFEE0005FACC /* ListFontsItem.swift */,
+				1AB97EFB1C0CD0660005FACC /* ListFontItemXib.xib */,
 			);
 			name = "Custom views";
 			sourceTree = "<group>";
@@ -173,6 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A734E3A1C01BEC800FB97D0 /* Localizable.strings in Resources */,
+				1AB97EFC1C0CD0660005FACC /* ListFontItemXib.xib in Resources */,
 				1A734E181C01AB0E00FB97D0 /* LaunchScreen.storyboard in Resources */,
 				1A734E151C01AB0E00FB97D0 /* Assets.xcassets in Resources */,
 				1A734E131C01AB0E00FB97D0 /* Main.storyboard in Resources */,
@@ -187,9 +197,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A734E101C01AB0E00FB97D0 /* ViewController.swift in Sources */,
+				1AB97EFA1C0CCFEE0005FACC /* ListFontsItem.swift in Sources */,
 				1A734E571C02012900FB97D0 /* GeneratedImageViewController.swift in Sources */,
 				1A734E211C01AE4800FB97D0 /* BlendModeButton.swift in Sources */,
 				1AC288321C090C280070CDA2 /* AddTextViewController.swift in Sources */,
+				1AB97EF81C0CB5850005FACC /* ListFonts.swift in Sources */,
 				1A2450061C022C460034E2E1 /* CALayer+Utils.swift in Sources */,
 				1A734E0E1C01AB0E00FB97D0 /* AppDelegate.swift in Sources */,
 				1A734E2E1C01BA4000FB97D0 /* PhotoEditorViewController.swift in Sources */,

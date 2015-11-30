@@ -33,6 +33,16 @@ class AddTextViewController: UIViewController {
 
         self.navigationItem.leftBarButtonItem = closeButton;
         
+        
+        let flowLayout:UICollectionViewFlowLayout = UICollectionViewFlowLayout();
+        // This property define the size of each cell of 
+        flowLayout.itemSize = CGSizeMake(150, 44);
+        flowLayout.scrollDirection = .Horizontal;
+        let listFonts:ListFonts = ListFonts(frame: CGRectMake(0, 0, CGRectGetWidth(UIScreen.mainScreen().bounds), 44), collectionViewLayout: flowLayout);
+        
+        photoTextField.inputAccessoryView = listFonts;
+        photoTextField.autocorrectionType = UITextAutocorrectionType.No;
+        
         // This View controller is now the delegate manager of photoTextField's delegates methods
         photoTextField.delegate = self;
         if let foo = inputText {
