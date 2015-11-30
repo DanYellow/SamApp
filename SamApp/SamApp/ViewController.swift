@@ -14,8 +14,6 @@
 */
 
 
-
-
 import UIKit
 // Required if we want to know if user has autorized app to access his camera roll
 import Photos

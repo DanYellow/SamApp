@@ -21,6 +21,9 @@ class AddTextViewController: UIViewController {
     
     @IBOutlet weak var photoTextField: UITextField!
     
+    var inputText:String? = nil;
+    var delegate: AddTextViewDelegate?;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.whiteColor();
@@ -29,7 +32,12 @@ class AddTextViewController: UIViewController {
         let closeButton:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "closeModal:");
 
         self.navigationItem.leftBarButtonItem = closeButton;
-
+        
+        // This View controller is now the delegate manager of photoTextField's delegates methods
+        photoTextField.delegate = self;
+        if let foo = inputText {
+            photoTextField.text = foo;
+        }
     }
     
     func closeModal(segue: UIStoryboard) ->() {
@@ -41,4 +49,18 @@ class AddTextViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+}
+
+extension AddTextViewController:UITextFieldDelegate {
+
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        delegate?.textEdited(textField: textField);
+        
+        return true;
+    }
+}
+
+/// Called when button is selected
+protocol AddTextViewDelegate {
+    func textEdited(textField textField:UITextField);
 }

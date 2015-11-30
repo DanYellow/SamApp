@@ -301,6 +301,7 @@ class PhotoEditorViewController: UIViewController {
         photoViewTextlayer.alignmentMode = kCAAlignmentJustified;
         photoViewTextlayer.string = "hello";
         photoViewTextlayer.wrapped = true;
+        photoViewTextlayer.name = "photoText"
         photoViewTextlayer.zPosition = 0;
         photoViewTextlayer.contentsScale = UIScreen.mainScreen().scale;
         photoViewTextlayer.frame = CGRectMake(27, 75, 267, 320);
@@ -385,9 +386,19 @@ class PhotoEditorViewController: UIViewController {
     func showTextEditor() {
         // We display the view controller by its id set in the storyboard
         // Select the NavigationController next to addTextViewController
-        let addTextViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Hello");
+        let addTextNavigationController:UINavigationController = self.storyboard?.instantiateViewControllerWithIdentifier("Hello") as! UINavigationController;
         
-        self.presentViewController(addTextViewController!, animated: true, completion: nil);
+        let addTextViewController:AddTextViewController = addTextNavigationController.topViewController as! AddTextViewController;
+        addTextViewController.delegate = self;
+        if let textLayer = self.photoView.layerForName(layerName: "photoText") as? CATextLayer {
+            
+
+                addTextViewController.inputText = textLayer.string as? String;
+
+        }
+       
+        
+        self.presentViewController(addTextNavigationController, animated: true, completion: nil);
     }
     
     
@@ -416,6 +427,11 @@ class PhotoEditorViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func updateLayerText(layerName string: String, text: String) {
+        if let textLayer = self.photoView.layerForName(layerName: string) as? CATextLayer {
+            textLayer.string = text;
+        }
+    }
 }
 
 extension PhotoEditorViewController: BlendModeButtonDelegate {
@@ -428,5 +444,11 @@ extension PhotoEditorViewController: BlendModeButtonDelegate {
             blendModeSelected = sender.blendMode;
             applyBlendMode();
         }
+    }
+}
+
+extension PhotoEditorViewController: AddTextViewDelegate {
+    func textEdited(textField textField: UITextField) {
+        self.updateLayerText(layerName: "photoText", text: textField.text!);
     }
 }
