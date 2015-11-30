@@ -19,6 +19,8 @@ import UIKit
 
 class AddTextViewController: UIViewController {
     
+    @IBOutlet weak var photoTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.whiteColor();
