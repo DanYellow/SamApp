@@ -38,6 +38,7 @@ class AddTextViewController: UIViewController {
         // This property define the size of each cell of 
         flowLayout.itemSize = CGSizeMake(150, 44);
         flowLayout.scrollDirection = .Horizontal;
+        flowLayout.minimumInteritemSpacing = 3.0;        
         let listFonts:ListFonts = ListFonts(frame: CGRectMake(0, 0, CGRectGetWidth(UIScreen.mainScreen().bounds), 44), collectionViewLayout: flowLayout);
         
         photoTextField.inputAccessoryView = listFonts;

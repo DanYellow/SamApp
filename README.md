@@ -5,7 +5,7 @@ A photo very lightweight photo app build on Swift 2.X
 # In this branch
 - Correction of "exercices" from branch "advanced-techniques-1"
 - UIGestureRecongnizer - A powerful API to manage complex gesture (or simple)
-- 
+- UICollectionView - A nice way pour display a (long) list of datas without lagging or consumming to many CPU ressources
 
 
 # Useful links

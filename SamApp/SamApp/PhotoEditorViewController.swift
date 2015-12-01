@@ -391,10 +391,7 @@ class PhotoEditorViewController: UIViewController {
         let addTextViewController:AddTextViewController = addTextNavigationController.topViewController as! AddTextViewController;
         addTextViewController.delegate = self;
         if let textLayer = self.photoView.layerForName(layerName: "photoText") as? CATextLayer {
-            
-
-                addTextViewController.inputText = textLayer.string as? String;
-
+            addTextViewController.inputText = textLayer.string as? String;
         }
        
         
