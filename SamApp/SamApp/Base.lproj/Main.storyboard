@@ -21,7 +21,7 @@
                                 <rect key="frame" x="277" y="285" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="Qi2-Jd-zOX" kind="show" identifier="photoEditor" id="xMe-DV-1zt"/>
+                                    <segue destination="2lk-JR-74a" kind="show" id="4aF-gS-5KE"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BKc-LO-GBr">
@@ -63,126 +63,122 @@
             <point key="canvasLocation" x="874" y="-461"/>
         </scene>
         <!--Photo Editor View Controller-->
-        <scene sceneID="ivp-CZ-dq2">
+        <scene sceneID="fJ0-x1-vIT">
             <objects>
-                <viewController id="Qi2-Jd-zOX" customClass="PhotoEditorViewController" customModule="SamApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2lk-JR-74a" customClass="PhotoEditorViewController" customModule="SamApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="r9t-no-anB"/>
-                        <viewControllerLayoutGuide type="bottom" id="qCW-kv-grw"/>
+                        <viewControllerLayoutGuide type="top" id="E3K-SF-OeJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="zim-Ca-HnJ"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="sJX-8k-dVt" customClass="UIScrollView">
+                    <view key="view" contentMode="scaleToFill" id="sSf-v5-t0F">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hbc-Xa-uyd">
-                                <rect key="frame" x="277" y="606" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="377" y="545" width="46" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="resetBlendMode:" destination="Qi2-Jd-zOX" eventType="touchUpInside" id="L4p-ka-Vwf"/>
-                                </connections>
-                            </button>
-                            <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="pJk-yg-1v2" customClass="ColorSlider" customModule="SamApp" customModuleProvider="target">
-                                <rect key="frame" x="225" y="347" width="150" height="31"/>
-                                <color key="minimumTrackTintColor" red="1" green="0.022213712609999998" blue="0.038823768160000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="maximumTrackTintColor" red="1" green="0.022213712609999998" blue="0.038823768160000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="colorUpdated:" destination="Qi2-Jd-zOX" eventType="touchUpOutside" id="NyV-07-lKf"/>
-                                    <action selector="colorUpdated:" destination="Qi2-Jd-zOX" eventType="touchUpInside" id="wbf-yY-d8A"/>
-                                </connections>
-                            </slider>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Samix" translatesAutoresizingMaskIntoConstraints="NO" id="2aw-XO-SYg">
-                                <rect key="frame" x="150" y="39" width="300" height="300"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="IcA-9a-Bu2"/>
-                                    <constraint firstAttribute="height" constant="300" id="Y5U-4n-bWV"/>
-                                </constraints>
-                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="250" y="39" width="300" height="300"/>
-                                </variation>
-                            </imageView>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mSb-XY-Q2A">
-                                <rect key="frame" x="157" y="300" width="30" height="30"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BB0-fe-lyi" customClass="UIScrollView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jfA-GT-mfe">
+                                        <rect key="frame" x="277" y="606" width="46" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                        <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
+                                            <rect key="frame" x="377" y="545" width="46" height="30"/>
+                                        </variation>
+                                    </button>
+                                    <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="kAg-yR-hOS" customClass="ColorSlider" customModule="SamApp" customModuleProvider="target">
+                                        <rect key="frame" x="226" y="347" width="150" height="31"/>
+                                        <color key="minimumTrackTintColor" red="1" green="0.022213712609999998" blue="0.038823768160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="maximumTrackTintColor" red="1" green="0.022213712609999998" blue="0.038823768160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </slider>
+                                    <imageView multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Samix" translatesAutoresizingMaskIntoConstraints="NO" id="aYb-ku-9dc">
+                                        <rect key="frame" x="150" y="39" width="300" height="300"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="300" id="Qod-Ns-5lx"/>
+                                            <constraint firstAttribute="width" constant="300" id="RnX-Fj-LCg"/>
+                                        </constraints>
+                                        <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
+                                            <rect key="frame" x="250" y="39" width="300" height="300"/>
+                                        </variation>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="76m-AW-gvE">
+                                        <rect key="frame" x="157" y="300" width="30" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
+                                                <color key="value" red="0.40733506940000003" green="0.35356760209999999" blue="0.02178936603" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="2.0"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="3.0"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="0gP-Vr-Uj8" customClass="ColorSlider" customModule="SamApp" customModuleProvider="target">
+                                        <rect key="frame" x="226" y="399" width="150" height="31"/>
+                                        <color key="minimumTrackTintColor" red="0.0064969315860000003" green="0.83437894570000004" blue="0.2668831586" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="maximumTrackTintColor" red="0.0064969315860000003" green="0.83437894570000004" blue="0.2668831586" alpha="1" colorSpace="calibratedRGB"/>
+                                    </slider>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BTX-Wl-NGO">
+                                        <rect key="frame" x="150" y="508" width="300" height="77"/>
+                                        <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
+                                            <rect key="frame" x="150" y="435" width="300" height="77"/>
+                                        </variation>
+                                    </scrollView>
+                                    <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="tPL-6k-pWn" customClass="ColorSlider" customModule="SamApp" customModuleProvider="target">
+                                        <rect key="frame" x="226" y="451" width="150" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="146" id="R77-NE-GhH"/>
+                                            <constraint firstAttribute="height" constant="30" id="xTS-uw-ake"/>
+                                        </constraints>
+                                        <color key="minimumTrackTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="maximumTrackTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </slider>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
-                                        <color key="value" red="0.40733506944444442" green="0.35356760213543709" blue="0.021789366027141856" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="2.0"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="3.0"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="QAI-9Q-UnC" customClass="ColorSlider" customModule="SamApp" customModuleProvider="target">
-                                <rect key="frame" x="225" y="400" width="150" height="31"/>
-                                <color key="minimumTrackTintColor" red="0.0064969315860000003" green="0.83437894570000004" blue="0.2668831586" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="maximumTrackTintColor" red="0.0064969315860000003" green="0.83437894570000004" blue="0.2668831586" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="colorUpdated:" destination="Qi2-Jd-zOX" eventType="touchUpOutside" id="aw3-iJ-Bug"/>
-                                    <action selector="colorUpdated:" destination="Qi2-Jd-zOX" eventType="touchUpInside" id="t2j-5u-q2T"/>
-                                </connections>
-                            </slider>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4ek-f4-IC3">
-                                <rect key="frame" x="150" y="508" width="300" height="77"/>
-                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="150" y="435" width="300" height="77"/>
-                                </variation>
-                            </scrollView>
-                            <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="hAC-cf-nl1" customClass="ColorSlider" customModule="SamApp" customModuleProvider="target">
-                                <rect key="frame" x="225" y="451" width="150" height="31"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="DAU-a2-Qs5"/>
-                                    <constraint firstAttribute="width" constant="146" id="Nke-uA-F6I"/>
+                                    <constraint firstItem="jfA-GT-mfe" firstAttribute="top" secondItem="BTX-Wl-NGO" secondAttribute="bottom" constant="15" id="4sT-G6-PcE"/>
+                                    <constraint firstItem="tPL-6k-pWn" firstAttribute="top" secondItem="0gP-Vr-Uj8" secondAttribute="bottom" constant="15" id="AjT-QL-hf2"/>
+                                    <constraint firstItem="76m-AW-gvE" firstAttribute="bottom" secondItem="aYb-ku-9dc" secondAttribute="bottom" constant="-10" id="GUC-Ln-Voe"/>
+                                    <constraint firstItem="kAg-yR-hOS" firstAttribute="top" secondItem="aYb-ku-9dc" secondAttribute="bottom" constant="10" id="MMg-ne-8xj"/>
+                                    <constraint firstItem="aYb-ku-9dc" firstAttribute="centerX" secondItem="BB0-fe-lyi" secondAttribute="centerX" id="MYk-wq-lqe"/>
+                                    <constraint firstItem="jfA-GT-mfe" firstAttribute="centerX" secondItem="BB0-fe-lyi" secondAttribute="centerX" id="Zh9-bF-gNi"/>
+                                    <constraint firstItem="BTX-Wl-NGO" firstAttribute="centerX" secondItem="BB0-fe-lyi" secondAttribute="centerX" id="diQ-lM-72o"/>
+                                    <constraint firstItem="kAg-yR-hOS" firstAttribute="leading" secondItem="0gP-Vr-Uj8" secondAttribute="leading" id="k35-0E-BZz"/>
+                                    <constraint firstItem="kAg-yR-hOS" firstAttribute="centerX" secondItem="BTX-Wl-NGO" secondAttribute="centerX" id="new-Wl-m46"/>
+                                    <constraint firstItem="tPL-6k-pWn" firstAttribute="centerX" secondItem="BB0-fe-lyi" secondAttribute="centerX" id="sVu-Tm-3xi"/>
+                                    <constraint firstItem="kAg-yR-hOS" firstAttribute="centerX" secondItem="BB0-fe-lyi" secondAttribute="centerX" id="tQ3-2v-EPk"/>
+                                    <constraint firstItem="76m-AW-gvE" firstAttribute="leading" secondItem="aYb-ku-9dc" secondAttribute="leading" constant="10" id="uxT-hU-3BZ"/>
+                                    <constraint firstItem="kAg-yR-hOS" firstAttribute="leading" secondItem="tPL-6k-pWn" secondAttribute="leading" id="vjc-VW-L6u"/>
+                                    <constraint firstItem="0gP-Vr-Uj8" firstAttribute="centerX" secondItem="BB0-fe-lyi" secondAttribute="centerX" id="ynh-qp-p25"/>
+                                    <constraint firstItem="0gP-Vr-Uj8" firstAttribute="top" secondItem="kAg-yR-hOS" secondAttribute="bottom" constant="15" id="zq8-am-nRZ"/>
                                 </constraints>
-                                <color key="minimumTrackTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="maximumTrackTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="colorUpdated:" destination="Qi2-Jd-zOX" eventType="touchUpInside" id="7I1-r5-Afw"/>
-                                    <action selector="colorUpdated:" destination="Qi2-Jd-zOX" eventType="touchUpOutside" id="qbU-Pg-xKz"/>
-                                </connections>
-                            </slider>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="pJk-yg-1v2" firstAttribute="top" secondItem="2aw-XO-SYg" secondAttribute="bottom" constant="10" id="1mo-tU-iCX"/>
-                            <constraint firstItem="hAC-cf-nl1" firstAttribute="top" secondItem="QAI-9Q-UnC" secondAttribute="bottom" constant="15" id="7bR-bz-Wti"/>
-                            <constraint firstItem="mSb-XY-Q2A" firstAttribute="leading" secondItem="2aw-XO-SYg" secondAttribute="leading" constant="10" id="FAe-J4-9Xp"/>
-                            <constraint firstItem="2aw-XO-SYg" firstAttribute="centerX" secondItem="sJX-8k-dVt" secondAttribute="centerX" id="K0a-hq-NOm"/>
-                            <constraint firstItem="pJk-yg-1v2" firstAttribute="leading" secondItem="hAC-cf-nl1" secondAttribute="leading" id="Mgu-Da-LrM"/>
-                            <constraint firstItem="pJk-yg-1v2" firstAttribute="centerX" secondItem="4ek-f4-IC3" secondAttribute="centerX" id="Pl0-sW-ahH"/>
-                            <constraint firstItem="mSb-XY-Q2A" firstAttribute="bottom" secondItem="2aw-XO-SYg" secondAttribute="bottom" constant="-10" id="Uit-07-GpL"/>
-                            <constraint firstItem="hAC-cf-nl1" firstAttribute="centerX" secondItem="sJX-8k-dVt" secondAttribute="centerX" id="Y1l-Ax-pTk"/>
-                            <constraint firstItem="QAI-9Q-UnC" firstAttribute="centerX" secondItem="sJX-8k-dVt" secondAttribute="centerX" id="ZrY-lB-X7m"/>
-                            <constraint firstItem="QAI-9Q-UnC" firstAttribute="top" secondItem="pJk-yg-1v2" secondAttribute="bottom" constant="15" id="cYp-8E-Isq"/>
-                            <constraint firstItem="pJk-yg-1v2" firstAttribute="leading" secondItem="QAI-9Q-UnC" secondAttribute="leading" id="dYh-Sr-Kgs"/>
-                            <constraint firstItem="pJk-yg-1v2" firstAttribute="centerX" secondItem="sJX-8k-dVt" secondAttribute="centerX" id="fSw-Ac-csM"/>
-                            <constraint firstItem="hbc-Xa-uyd" firstAttribute="top" secondItem="4ek-f4-IC3" secondAttribute="bottom" constant="15" id="jC2-Oy-MoC"/>
-                            <constraint firstItem="hbc-Xa-uyd" firstAttribute="centerX" secondItem="sJX-8k-dVt" secondAttribute="centerX" id="uVU-y0-hTa"/>
-                            <constraint firstItem="4ek-f4-IC3" firstAttribute="centerX" secondItem="sJX-8k-dVt" secondAttribute="centerX" id="vZZ-zi-STL"/>
+                            <constraint firstItem="BB0-fe-lyi" firstAttribute="top" secondItem="sSf-v5-t0F" secondAttribute="top" id="2Qd-k1-EKB"/>
+                            <constraint firstItem="BB0-fe-lyi" firstAttribute="centerX" secondItem="sSf-v5-t0F" secondAttribute="centerX" id="ENa-lD-dyw"/>
+                            <constraint firstAttribute="trailing" secondItem="BB0-fe-lyi" secondAttribute="trailing" id="QVX-lC-4XO"/>
+                            <constraint firstItem="BB0-fe-lyi" firstAttribute="leading" secondItem="sSf-v5-t0F" secondAttribute="leading" id="a19-YC-hvZ"/>
+                            <constraint firstAttribute="bottom" secondItem="BB0-fe-lyi" secondAttribute="bottom" id="nSd-FZ-e3s"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                <color key="value" red="0.76300110479797978" green="0.58444977043830082" blue="0.3374882836976747" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
-                    <navigationItem key="navigationItem" id="k6b-0Z-eK8">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="Lky-HY-hiN">
-                            <connections>
-                                <segue destination="LcH-s9-56q" kind="presentation" identifier="pushImage" id="mk1-hp-Qmp"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                     <connections>
-                        <outlet property="blendModeBtnsContainer" destination="4ek-f4-IC3" id="UDE-Vi-fGk"/>
-                        <outlet property="blueSlider" destination="hAC-cf-nl1" id="OcL-x2-fDM"/>
-                        <outlet property="colorIndicatorView" destination="mSb-XY-Q2A" id="ofq-Zi-Ifh"/>
-                        <outlet property="greenSlider" destination="QAI-9Q-UnC" id="lek-GZ-JpS"/>
-                        <outlet property="mainScrollView" destination="sJX-8k-dVt" id="CLL-8n-FIg"/>
-                        <outlet property="photoView" destination="2aw-XO-SYg" id="cSZ-qw-ClM"/>
-                        <outlet property="redSlider" destination="pJk-yg-1v2" id="iLv-YI-gpJ"/>
-                        <outlet property="resetButton" destination="hbc-Xa-uyd" id="3fw-GG-qsh"/>
+                        <outlet property="blendModeBtnsContainer" destination="BTX-Wl-NGO" id="j7u-Bf-5Bm"/>
+                        <outlet property="blueSlider" destination="tPL-6k-pWn" id="85u-91-Qlw"/>
+                        <outlet property="colorIndicatorView" destination="76m-AW-gvE" id="jG0-EO-YaF"/>
+                        <outlet property="greenSlider" destination="0gP-Vr-Uj8" id="HBP-30-3rc"/>
+                        <outlet property="mainScrollView" destination="BB0-fe-lyi" id="Zj3-Fe-dMT"/>
+                        <outlet property="photoView" destination="aYb-ku-9dc" id="RKv-dl-D3S"/>
+                        <outlet property="redSlider" destination="kAg-yR-hOS" id="ogL-LV-iBY"/>
+                        <outlet property="resetButton" destination="jfA-GT-mfe" id="iWM-LI-iKF"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="W1N-yv-eUY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NiI-Py-nlC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1054" y="349"/>
+            <point key="canvasLocation" x="1076" y="349"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OCq-OL-5rt">
