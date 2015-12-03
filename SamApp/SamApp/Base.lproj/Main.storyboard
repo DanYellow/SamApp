@@ -83,11 +83,17 @@
                                         <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
                                             <rect key="frame" x="377" y="545" width="46" height="30"/>
                                         </variation>
+                                        <connections>
+                                            <action selector="resetBlendMode:" destination="2lk-JR-74a" eventType="touchUpInside" id="Oyf-iB-cGm"/>
+                                        </connections>
                                     </button>
                                     <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="kAg-yR-hOS" customClass="ColorSlider" customModule="SamApp" customModuleProvider="target">
                                         <rect key="frame" x="226" y="347" width="150" height="31"/>
                                         <color key="minimumTrackTintColor" red="1" green="0.022213712609999998" blue="0.038823768160000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="maximumTrackTintColor" red="1" green="0.022213712609999998" blue="0.038823768160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="colorUpdated:" destination="2lk-JR-74a" eventType="valueChanged" id="A7y-7K-D3y"/>
+                                        </connections>
                                     </slider>
                                     <imageView multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Samix" translatesAutoresizingMaskIntoConstraints="NO" id="aYb-ku-9dc">
                                         <rect key="frame" x="150" y="39" width="300" height="300"/>
@@ -114,6 +120,9 @@
                                         <rect key="frame" x="226" y="399" width="150" height="31"/>
                                         <color key="minimumTrackTintColor" red="0.0064969315860000003" green="0.83437894570000004" blue="0.2668831586" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="maximumTrackTintColor" red="0.0064969315860000003" green="0.83437894570000004" blue="0.2668831586" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="colorUpdated:" destination="2lk-JR-74a" eventType="valueChanged" id="qb7-CK-sRy"/>
+                                        </connections>
                                     </slider>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BTX-Wl-NGO">
                                         <rect key="frame" x="150" y="508" width="300" height="77"/>
@@ -129,6 +138,9 @@
                                         </constraints>
                                         <color key="minimumTrackTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="maximumTrackTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="colorUpdated:" destination="2lk-JR-74a" eventType="valueChanged" id="DHa-9b-tbc"/>
+                                        </connections>
                                     </slider>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -173,7 +185,7 @@
                         <outlet property="mainScrollView" destination="BB0-fe-lyi" id="Zj3-Fe-dMT"/>
                         <outlet property="photoView" destination="aYb-ku-9dc" id="RKv-dl-D3S"/>
                         <outlet property="redSlider" destination="kAg-yR-hOS" id="ogL-LV-iBY"/>
-                        <outlet property="resetButton" destination="jfA-GT-mfe" id="iWM-LI-iKF"/>
+                        <outlet property="resetButton" destination="jfA-GT-mfe" id="CoO-XF-nxg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NiI-Py-nlC" userLabel="First Responder" sceneMemberID="firstResponder"/>

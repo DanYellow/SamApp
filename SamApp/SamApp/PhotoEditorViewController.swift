@@ -44,7 +44,7 @@ class PhotoEditorViewController: UIViewController {
     private var originalImage:UIImage = UIImage(named: "Samix")!;
     
     private var tintColor: UIColor = UIColor();
-    var base64Str:String?
+    var base64Str:String?;
     
     // This array contains every blend mode available in Photoshop
     // We put keywords "let" before because theses arrays will not mutate
@@ -75,7 +75,6 @@ class PhotoEditorViewController: UIViewController {
             self.photoView.image = originalImage;
         }
 
-        
         let alphaSlider:ColorSlider = ColorSlider(frame: CGRectZero);
         alphaSlider.channelName = .ALPHA;
         // This line is very important it prevents xcode to do silly thing by adding unwanted constraints and worse 
@@ -310,7 +309,7 @@ class PhotoEditorViewController: UIViewController {
     }
     
     // MARK: IBAction
-    @IBAction func resetBlendMode(sender: BlendModeButton) {
+    @IBAction func resetBlendMode(sender: UIButton) {
         self.photoView.image = originalImage;
         isABlendModeActivated = false;
         BlendModeButton.resetButtons(blendModeBtnsContainer.subviews[0] as! BlendModeButton);
@@ -354,7 +353,7 @@ class PhotoEditorViewController: UIViewController {
             tintColor = UIColor(red: colorComponents[0], green: colorComponents[1], blue: colorComponents[2], alpha: sliderValue)
             break;
         }
-        
+
         let colorComponentsAfterUpdate = CGColorGetComponents(tintColor.CGColor);
         
         colorIndicatorView.backgroundColor = UIColor(red: colorComponentsAfterUpdate[0], green: colorComponentsAfterUpdate[1], blue: colorComponentsAfterUpdate[2], alpha: 1.0);
@@ -410,6 +409,7 @@ class PhotoEditorViewController: UIViewController {
             // set a method to push only properties needed for next view are useful
         }
     }
+    
     
     // Maybe one of the coolest feature of Storyboard
     // when you put a function with this signature "(segue:UIStoryboardSegue)"

@@ -10,7 +10,7 @@
     TODO for this page
 
     - Afficher dans l'ordre alphabétique le nom des polices
-    - Changer le fond de la police utilisée ET changer la police
+    - Afficher le nom de la police dans chacune des cellules ET afficher la nom de la cellule dans son nom
     - Afficher une vue au-dessus du clavier qui permet de changer la police du texte écrit
         • Indiquer la police utilisée
 */
@@ -51,7 +51,7 @@ extension ListFonts:UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell:ListFontsItem = collectionView.dequeueReusableCellWithReuseIdentifier(CELLIDENTIFIER, forIndexPath: indexPath) as! ListFontsItem;
 
-        cell.label.text = fontsList[indexPath.row];
+        cell.label.text = "Pikachu";
         cell.label.textAlignment = .Center;
         cell.backgroundColor = UIColor.lightGrayColor();
         return cell;
@@ -80,11 +80,11 @@ extension ListFonts:UICollectionViewDelegate {
 }
 
 extension ListFonts:UICollectionViewDelegateFlowLayout {
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        
-        let uselessLabel = UILabel(frame: CGRectZero);
-        uselessLabel.text = fontsList[indexPath.row];
-        
-        return CGSizeMake(uselessLabel.sizeThatFits(CGSizeMake(120, CGFloat.max)).width + 40, 44.0);
-    }
+//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+//        
+//        let uselessLabel = UILabel(frame: CGRectZero);
+//        uselessLabel.text = fontsList[indexPath.row];
+//        
+//        return CGSizeMake(uselessLabel.sizeThatFits(CGSizeMake(120, CGFloat.max)).width + 40, 44.0);
+//    }
 }

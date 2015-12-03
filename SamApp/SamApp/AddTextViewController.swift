@@ -46,8 +46,8 @@ class AddTextViewController: UIViewController {
         
         // This View controller is now the delegate manager of photoTextField's delegates methods
         photoTextField.delegate = self;
-        if let foo = inputText {
-            photoTextField.text = foo;
+        if (inputText != nil) {
+            photoTextField.text = inputText;
         }
     }
     
