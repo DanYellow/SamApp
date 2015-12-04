@@ -21,7 +21,7 @@
                                 <rect key="frame" x="277" y="285" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="2lk-JR-74a" kind="show" id="4aF-gS-5KE"/>
+                                    <segue destination="2lk-JR-74a" kind="show" identifier="photoEditor" id="4aF-gS-5KE"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BKc-LO-GBr">
@@ -92,7 +92,8 @@
                                         <color key="minimumTrackTintColor" red="1" green="0.022213712609999998" blue="0.038823768160000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="maximumTrackTintColor" red="1" green="0.022213712609999998" blue="0.038823768160000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <action selector="colorUpdated:" destination="2lk-JR-74a" eventType="valueChanged" id="A7y-7K-D3y"/>
+                                            <action selector="colorUpdated:" destination="2lk-JR-74a" eventType="touchUpInside" id="74u-Mh-20d"/>
+                                            <action selector="colorUpdated:" destination="2lk-JR-74a" eventType="touchUpOutside" id="BIf-Ho-TM0"/>
                                         </connections>
                                     </slider>
                                     <imageView multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Samix" translatesAutoresizingMaskIntoConstraints="NO" id="aYb-ku-9dc">
@@ -121,7 +122,8 @@
                                         <color key="minimumTrackTintColor" red="0.0064969315860000003" green="0.83437894570000004" blue="0.2668831586" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="maximumTrackTintColor" red="0.0064969315860000003" green="0.83437894570000004" blue="0.2668831586" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <action selector="colorUpdated:" destination="2lk-JR-74a" eventType="valueChanged" id="qb7-CK-sRy"/>
+                                            <action selector="colorUpdated:" destination="2lk-JR-74a" eventType="touchUpInside" id="1ON-5A-Pib"/>
+                                            <action selector="colorUpdated:" destination="2lk-JR-74a" eventType="touchUpOutside" id="VVa-eN-hTn"/>
                                         </connections>
                                     </slider>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BTX-Wl-NGO">
@@ -139,7 +141,8 @@
                                         <color key="minimumTrackTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="maximumTrackTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <action selector="colorUpdated:" destination="2lk-JR-74a" eventType="valueChanged" id="DHa-9b-tbc"/>
+                                            <action selector="colorUpdated:" destination="2lk-JR-74a" eventType="touchUpOutside" id="OVr-Sk-N9q"/>
+                                            <action selector="colorUpdated:" destination="2lk-JR-74a" eventType="touchUpInside" id="mtX-8V-isy"/>
                                         </connections>
                                     </slider>
                                 </subviews>
@@ -162,13 +165,26 @@
                                     <constraint firstItem="0gP-Vr-Uj8" firstAttribute="top" secondItem="kAg-yR-hOS" secondAttribute="bottom" constant="15" id="zq8-am-nRZ"/>
                                 </constraints>
                             </view>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cTV-An-cCJ">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem title="Item" id="4vX-H8-URd">
+                                        <connections>
+                                            <action selector="showTextEditor" destination="2lk-JR-74a" id="Kid-Qh-SLQ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="BB0-fe-lyi" firstAttribute="top" secondItem="sSf-v5-t0F" secondAttribute="top" id="2Qd-k1-EKB"/>
+                            <constraint firstAttribute="bottom" secondItem="cTV-An-cCJ" secondAttribute="bottom" id="7Co-KH-gTk"/>
                             <constraint firstItem="BB0-fe-lyi" firstAttribute="centerX" secondItem="sSf-v5-t0F" secondAttribute="centerX" id="ENa-lD-dyw"/>
                             <constraint firstAttribute="trailing" secondItem="BB0-fe-lyi" secondAttribute="trailing" id="QVX-lC-4XO"/>
                             <constraint firstItem="BB0-fe-lyi" firstAttribute="leading" secondItem="sSf-v5-t0F" secondAttribute="leading" id="a19-YC-hvZ"/>
+                            <constraint firstItem="cTV-An-cCJ" firstAttribute="leading" secondItem="sSf-v5-t0F" secondAttribute="leading" id="f3e-mU-MEc"/>
+                            <constraint firstAttribute="trailing" secondItem="cTV-An-cCJ" secondAttribute="trailing" id="mY7-K0-nrc"/>
                             <constraint firstAttribute="bottom" secondItem="BB0-fe-lyi" secondAttribute="bottom" id="nSd-FZ-e3s"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>

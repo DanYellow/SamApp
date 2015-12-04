@@ -90,7 +90,7 @@ class PhotoEditorViewController: UIViewController {
         alphaSlider.maximumTrackTintColor = UIColor.lightGrayColor();
         alphaSlider.minimumTrackTintColor = UIColor.lightGrayColor();
         alphaSlider.value = 0.5;
-        self.view.addSubview(alphaSlider);
+        self.view.insertSubview(alphaSlider, atIndex: 1);
         
         // We init the tint color with slider values
         tintColor = UIColor(red: CGFloat(redSlider.value),
@@ -282,7 +282,6 @@ class PhotoEditorViewController: UIViewController {
         }
         
         let lastBtn = blendModeBtnsContainer.subviews.filter{$0 is BlendModeButton}.last as! BlendModeButton;
-        blendModeBtnsContainer.contentSize = CGSizeMake(CGRectGetMaxX(lastBtn.frame), CGRectGetHeight(lastBtn.frame));
         // We set the frame of the container of blendmode button
         // x : 10 to be elegant
         // y : we get the y from storyboard placement
@@ -293,6 +292,9 @@ class PhotoEditorViewController: UIViewController {
             CGRectGetWidth(self.view.frame) - 20,
             CGRectGetHeight(lastBtn.frame));
         
+        
+        blendModeBtnsContainer.contentSize = CGSizeMake(CGRectGetMaxX(lastBtn.frame), CGRectGetHeight(lastBtn.frame));
+        
         mainScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.view.frame),
                                                 mainScrollView.bottomestUIView().maxY + CGRectGetHeight((self.navigationController?.navigationBar.frame)!));
 
@@ -300,7 +302,7 @@ class PhotoEditorViewController: UIViewController {
         photoViewTextlayer.alignmentMode = kCAAlignmentJustified;
         photoViewTextlayer.string = "hello";
         photoViewTextlayer.wrapped = true;
-        photoViewTextlayer.name = "photoText"
+        photoViewTextlayer.name = "photoText";
         photoViewTextlayer.zPosition = 0;
         photoViewTextlayer.contentsScale = UIScreen.mainScreen().scale;
         photoViewTextlayer.frame = CGRectMake(27, 75, 267, 320);
@@ -382,7 +384,7 @@ class PhotoEditorViewController: UIViewController {
     }
     
     
-    func showTextEditor() {
+    @IBAction func showTextEditor() {
         // We display the view controller by its id set in the storyboard
         // Select the NavigationController next to addTextViewController
         let addTextNavigationController:UINavigationController = self.storyboard?.instantiateViewControllerWithIdentifier("Hello") as! UINavigationController;

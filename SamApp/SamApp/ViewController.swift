@@ -54,6 +54,7 @@ class ViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "photoEditor" {
             let destViewController:PhotoEditorViewController = segue.destinationViewController as! PhotoEditorViewController
+
             if imageSelected != nil {
                 destViewController.imageSelected = imageSelected!;
             }
@@ -65,7 +66,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
 {
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         imageSelected = image.resizeImage(targetSize: CGSizeMake(600, 600));
-        print(imageSelected?.size);
+        
         dismissViewControllerAnimated(true, completion: nil)
     }
     

@@ -47,8 +47,8 @@
 		1A734E3D1C01BECF00FB97D0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1A734E561C02012900FB97D0 /* GeneratedImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedImageViewController.swift; sourceTree = "<group>"; };
 		1A734E5A1C02024100FB97D0 /* ColorSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSlider.swift; sourceTree = "<group>"; };
-		1A7BD9911C0AF06F0018156B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
-		1A7BD9931C0AF0C60018156B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		1A89C66F1C10F33E00DF8E05 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		1A89C6711C10F39000DF8E05 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		1AB97EF71C0CB5850005FACC /* ListFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListFonts.swift; sourceTree = "<group>"; };
 		1AB97EF91C0CCFEE0005FACC /* ListFontsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListFontsItem.swift; sourceTree = "<group>"; };
 		1AB97EFB1C0CD0660005FACC /* ListFontItemXib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListFontItemXib.xib; sourceTree = "<group>"; };
@@ -219,8 +219,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				1A734E121C01AB0E00FB97D0 /* Base */,
-				1A7BD9911C0AF06F0018156B /* fr */,
-				1A7BD9931C0AF0C60018156B /* en */,
+				1A89C66F1C10F33E00DF8E05 /* en */,
+				1A89C6711C10F39000DF8E05 /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
