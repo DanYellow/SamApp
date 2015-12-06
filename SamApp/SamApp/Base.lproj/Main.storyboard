@@ -28,7 +28,7 @@
                                 <rect key="frame" x="196" y="336" width="208" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="choosePhotoFromAlbum" destination="BYZ-38-t0r" eventType="touchUpInside" id="BS4-lZ-XoG"/>
+                                    <action selector="choosePhotoSource" destination="BYZ-38-t0r" eventType="touchUpInside" id="SPe-Ee-Mk2"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -62,7 +62,7 @@
             </objects>
             <point key="canvasLocation" x="874" y="-461"/>
         </scene>
-        <!--Photo Editor View Controller-->
+        <!--Title-->
         <scene sceneID="fJ0-x1-vIT">
             <objects>
                 <viewController id="2lk-JR-74a" customClass="PhotoEditorViewController" customModule="SamApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -74,6 +74,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cTV-An-cCJ">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem title="Item" id="4vX-H8-URd">
+                                        <connections>
+                                            <action selector="showTextEditor" destination="2lk-JR-74a" id="Kid-Qh-SLQ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BB0-fe-lyi" customClass="UIScrollView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
@@ -102,6 +112,9 @@
                                             <constraint firstAttribute="height" constant="300" id="Qod-Ns-5lx"/>
                                             <constraint firstAttribute="width" constant="300" id="RnX-Fj-LCg"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
                                             <rect key="frame" x="250" y="39" width="300" height="300"/>
                                         </variation>
@@ -165,16 +178,6 @@
                                     <constraint firstItem="0gP-Vr-Uj8" firstAttribute="top" secondItem="kAg-yR-hOS" secondAttribute="bottom" constant="15" id="zq8-am-nRZ"/>
                                 </constraints>
                             </view>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cTV-An-cCJ">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <items>
-                                    <barButtonItem title="Item" id="4vX-H8-URd">
-                                        <connections>
-                                            <action selector="showTextEditor" destination="2lk-JR-74a" id="Kid-Qh-SLQ"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -193,6 +196,13 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="LNB-1d-CkF">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="CkT-en-S9n">
+                            <connections>
+                                <segue destination="LcH-s9-56q" kind="presentation" identifier="pushImage" id="2dK-na-vVI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="blendModeBtnsContainer" destination="BTX-Wl-NGO" id="j7u-Bf-5Bm"/>
                         <outlet property="blueSlider" destination="tPL-6k-pWn" id="85u-91-Qlw"/>

@@ -4,7 +4,7 @@ A photo very lightweight photo app build on Swift 2.X
 
 # In this branch
 - Correction of "exercices" from branch "advanced-techniques-1"
-- UIGestureRecongnizer - A powerful API to manage complex gesture (or simple)
+- UIAlertController - A simple way to show a lot of choices
 - UICollectionView - A nice way pour display a (long) list of datas without lagging or consumming to many CPU ressources
 
 
@@ -18,7 +18,7 @@ A photo very lightweight photo app build on Swift 2.X
 ### Documention
 - [NSHipster (en)](http://nshipster.com) : Nice mix between a documentation and tutorial. Every documentorials are in Swift (2.X ?) and Objective-C (Mostly Swift)
 - [Swift code (fr)](http://www.swiftcode.fr/) : Translated documention of Swift. Partial but enough completed enough to understand some technical things
-- [Apple docs](https://developer.apple.com/library/ios/navigation) : The docs by apple. Note : Apple provide a nice ebook available for free on iBooks
+- [Apple docs](https://developer.apple.com/library/ios/navigation) : The docs by apple. Note : Apple provide a nice ebook about Swift available for free on iBooks
 
 ### Good practices
 - [How to comment well (en)](http://nshipster.com/swift-documentation/)

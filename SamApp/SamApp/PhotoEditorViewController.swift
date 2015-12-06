@@ -283,14 +283,18 @@ class PhotoEditorViewController: UIViewController {
         
         let lastBtn = blendModeBtnsContainer.subviews.filter{$0 is BlendModeButton}.last as! BlendModeButton;
         // We set the frame of the container of blendmode button
-        // x : 10 to be elegant
+        // x : 0 because it will be changed by center property
         // y : we get the y from storyboard placement
         // width : screen width - 20 (the view'x is 10)
         // height : height of blendmode button
-        blendModeBtnsContainer.frame = CGRectMake(10,
+        blendModeBtnsContainer.backgroundColor = UIColor.redColor();
+        blendModeBtnsContainer.sizeToFit();
+        print(blendModeBtnsContainer.frame);
+        blendModeBtnsContainer.frame = CGRectMake(0,
             CGRectGetMinY(blendModeBtnsContainer.frame),
             CGRectGetWidth(self.view.frame) - 20,
-            CGRectGetHeight(lastBtn.frame));
+            CGRectGetHeight(blendModeBtnsContainer.frame));
+        blendModeBtnsContainer.center = CGPoint(x: blendModeBtnsContainer.superview!.center.x, y: blendModeBtnsContainer.center.y);
         
         
         blendModeBtnsContainer.contentSize = CGSizeMake(CGRectGetMaxX(lastBtn.frame), CGRectGetHeight(lastBtn.frame));
@@ -298,6 +302,8 @@ class PhotoEditorViewController: UIViewController {
         mainScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.view.frame),
                                                 mainScrollView.bottomestUIView().maxY + CGRectGetHeight((self.navigationController?.navigationBar.frame)!));
 
+        // An UIView can support a lot of layers. In iOS they herits from CALayer class
+        // CATextLayer allows you to right som text directly on an uiview
         let photoViewTextlayer = CATextLayer()
         photoViewTextlayer.alignmentMode = kCAAlignmentJustified;
         photoViewTextlayer.string = "hello";
@@ -317,18 +323,13 @@ class PhotoEditorViewController: UIViewController {
         BlendModeButton.resetButtons(blendModeBtnsContainer.subviews[0] as! BlendModeButton);
     }
     
-    private func resetButtons() {
-        let blendModeButtons:[BlendModeButton] = blendModeBtnsContainer.subviews.filter( { $0 is BlendModeButton }) as! [BlendModeButton];
-        blendModeButtons.forEach({ $0.selected = false });
-    }
-
-    
     @IBAction func colorUpdated(sender: ColorSlider) {
         // New (great) feature from Swift 2.0
         // guard is like a semantic if!/else but it's way better
         // because we keep the value tested (in the case of let myVar = fooVar)
         // outside the statement (we cannot see it in this case)
         // ❗️guard statement needs a 'break/return' statement at the end
+        // or else Xcode will be mad as Christian Bale during Terminator Salvation
         guard (isABlendModeActivated) else {
             return;
         }

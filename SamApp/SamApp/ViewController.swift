@@ -10,7 +10,7 @@
 /**
     @TODO
 
-    - Choisir une photo depuis son album, c'est cool. Choisir la source, c'est mieux ! Je voudrais donc qu'il soit possible de choisir une photo depuis son album OU l'appareil photo. Note l'iPhone prend des photos très grande, il serait peut être préférable de réduire la taille de la photo avant de la travailler
+    - Je voudrais afficher la photo qui va être éditer. Pla
 */
 
 
@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         
         photoPicker.delegate = self
         photoPicker.allowsEditing = false
-        photoPicker.sourceType = .PhotoLibrary
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,16 +39,50 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func choosePhotoSource() {
+        let alertController = UIAlertController(title: nil, message: "Please choose an source", preferredStyle: .ActionSheet);
+        alertController.modalPresentationStyle = .Popover
+        
+        let cancel = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .Cancel) { action in
+            
+        }
+        alertController.addAction(cancel);
+        
+        let camera = UIAlertAction(title: NSLocalizedString("Camera", comment: ""), style: .Default) { action in
+            self.choosePhotoFromCamera()
+        }
+        alertController.addAction(camera);
+        
+        let album = UIAlertAction(title: NSLocalizedString("Album", comment: ""), style: .Default) { action in
+            self.choosePhotoFromAlbum()
+        }
+        alertController.addAction(album);
+        
+        presentViewController(alertController, animated: true, completion: nil)
+        
+    }
+    
     @IBAction func choosePhotoFromAlbum() {
         let status:PHAuthorizationStatus = PHPhotoLibrary.authorizationStatus()
 
+        // We check the photolibrary autorization
         switch (status) {
         case .Authorized:
+            photoPicker.sourceType = .PhotoLibrary
             self.presentViewController(photoPicker, animated: true, completion: nil)
             break;
         default:
             break;
         }
+    }
+    
+    func choosePhotoFromCamera() {
+        // We check the photolibrary autorization
+        if AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo) ==  AVAuthorizationStatus.Authorized {
+            photoPicker.sourceType = .Camera
+            self.presentViewController(photoPicker, animated: true, completion: nil)
+        }
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
